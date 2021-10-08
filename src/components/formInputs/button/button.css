@@ -1,0 +1,27 @@
+.buttonclass {
+  background-color: blue;
+  color: white;
+  border: none;
+}
+.btn-disabled {
+  background-color: #bbb;
+}
+.create-btn {
+  background-color: #e20074;
+  width: 6.875rem;
+  height: 2.25rem;
+  color: white;
+  border: none;
+  font-size: 14px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+.cancel-btn {
+  width: 5.938rem;
+  height: 2.25rem;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: white;
+  color: #e20074;
+  border: none;
+}

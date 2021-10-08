@@ -1,0 +1,58 @@
+.aside {
+  width: 30%;
+  height: 100%;
+  background-color: #151820;
+  color: #fff;
+}
+.input-box {
+  background-color: #20232e;
+  width: 15.313rem;
+  height: 2.75rem;
+  border: none;
+  outline: none;
+}
+.aside-body {
+  height: calc(100% - 3.688rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.aside-body-img {
+  width: 13.875rem;
+  height: 16.288rem;
+  display: flex;
+  align-items: center;
+}
+.all-safe-count {
+  font-weight: normal;
+  color: #5e627c;
+}
+.arrow-down-icon {
+  height: 17px;
+  width: 10px;
+}
+.aside-header {
+  height: 3.688rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 7px;
+  border-bottom: 1px solid #2a2e3e;
+}
+.search-box {
+  background-color: #20232e;
+  display: flex;
+  align-items: center;
+}
+.imgdiv {
+  display: flex;
+  align-items: center;
+
+  flex-direction: column;
+}
+.create-safe-text {
+  line-height: 1.29;
+  font-size: 14px;
+  text-align: center;
+  color: #fff;
+}

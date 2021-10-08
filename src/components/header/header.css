@@ -1,0 +1,57 @@
+header {
+  font-family: Helvetica;
+  color: #ffffff;
+  height: 4.375rem;
+  width: 100%;
+  background-color: #151820;
+  /* background-image: linear-gradient(to top, #2f3545, #1d212c); */
+  box-shadow: 0 5px 25px 0 rgba(226, 0, 116, 0.5);
+  display: flex;
+  justify-content: center;
+}
+.header-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+}
+.logo-section {
+  display: flex;
+  align-items: center;
+}
+.logo {
+  width: 2.063rem;
+  height: 2.063rem;
+}
+.T-VAULT {
+  font-family: NunitoSans;
+  margin: 0 0 0 12px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 3.84px;
+  text-align: left;
+}
+.middle-section,
+.right-section {
+  font-family: Helvetica;
+  font-size: 0.813rem;
+  font-weight: bold;
+  text-align: left;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.middle-section li,
+.right-section li {
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  padding: 0 0.625rem;
+}
+.middle-section li:hover {
+  background-image: linear-gradient(to top, #72134b, #1d212c);
+}
+.right-section li:hover {
+  background-image: linear-gradient(to top, #72134b, #1d212c);
+}
