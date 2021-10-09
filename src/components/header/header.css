@@ -1,65 +1,24 @@
-header {
-  font-family: Helvetica;
-  color: #ffffff;
-  height: 4.375rem;
-
-  background-color: #151820;
-  /* background-image: linear-gradient(to top, #2f3545, #1d212c); */
-  box-shadow: 0 5px 25px 0 rgba(226, 0, 116, 0.5);
-  display: flex;
-  justify-content: center;
+.header{
+    width: 100%;
+    height: 10vh;
+    background-color: #3972e0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
-.header-wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 80%;
+.headerRight{
+   margin-right: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
-.logo-section {
-  display: flex;
-  align-items: center;
+.headerLeft{
+    margin-left: 1rem;
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    
 }
-.logo {
-  width: 2.063rem;
-  height: 2.063rem;
-}
-.T-VAULT {
-  font-family: NunitoSans;
-  margin: 0 0 0 12px;
-  font-size: 1.5rem;
-  font-weight: bold;
-  letter-spacing: 3.84px;
-  text-align: left;
-}
-.logo_middle_section {
-  display: flex;
-  align-items: center;
-  height: 100%;
-}
-.middle-section {
-  padding-left: 25px;
-}
-.middle-section,
-.right-section {
-  font-family: Helvetica;
-  font-size: 0.813rem;
-  font-weight: bold;
-  text-align: left;
-  height: 100%;
-  display: flex;
-  align-items: center;
-}
-.middle-section li,
-.right-section li {
-  height: 100%;
-
-  display: flex;
-  align-items: center;
-  padding: 0 0.625rem;
-}
-.middle-section li:hover {
-  background-image: linear-gradient(to top, #72134b, #1d212c);
-}
-.right-section li:hover {
-  background-image: linear-gradient(to top, #72134b, #1d212c);
+.header p{
+    margin-left: 7px;
 }
