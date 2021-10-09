@@ -31,6 +31,14 @@ header {
   letter-spacing: 3.84px;
   text-align: left;
 }
+.logo_middle_section {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.middle-section {
+  padding-left: 25px;
+}
 .middle-section,
 .right-section {
   font-family: Helvetica;

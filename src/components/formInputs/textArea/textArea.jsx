@@ -1,6 +1,6 @@
 import React from "react";
 import "./textArea.css";
-function TextArea({ modal_textarea, placeholder }) {
+function TextArea({ modal_textarea, placeholder, onChangeHandler, name }) {
   return (
     <textarea
       id=""
@@ -8,6 +8,8 @@ function TextArea({ modal_textarea, placeholder }) {
       rows="5"
       className={`${modal_textarea}`}
       placeholder={placeholder}
+      onChange={onChangeHandler}
+      name={name}
     ></textarea>
   );
 }

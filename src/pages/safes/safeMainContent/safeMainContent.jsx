@@ -18,10 +18,9 @@ function SafeMainContent() {
       </div>
       <div className="main-area">
         <div className="main-area-header">
-          <ul className="main-area-header-left">
-            <li>Secrets</li>
-            <li className="permission-li">Permissions</li>
-          </ul>
+          <div className="main-area-header-left">
+            <span>Secrets</span>
+          </div>
           <ul className="main-area-header-right">
             <li>
               <span>Add Folder</span>

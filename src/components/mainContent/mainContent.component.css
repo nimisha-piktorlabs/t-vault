@@ -6,7 +6,7 @@
   width: calc(100% - 33.125rem);
 }
 .banner {
-  height: 25%;
+  height: 11.938rem;
   position: relative;
 }
 .banner-img {
@@ -35,10 +35,8 @@
 }
 .main-area {
   background-image: linear-gradient(to top, #151820, #2c3040);
-  height: 75%;
-  justify-content: center;
-  width: 100%;
-  /* align-items: center; */
+  height: calc(100% - 11.938rem);
+
   display: flex;
   flex-direction: column;
 }

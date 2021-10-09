@@ -31,11 +31,18 @@
   height: 17px;
   width: 10px;
 }
+.all-safe {
+  display: flex;
+  align-items: center;
+}
+.arrow-icon {
+  padding-left: 10px;
+}
 .aside-header {
   height: 3.688rem;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   padding: 7px;
   border-bottom: 1px solid #2a2e3e;
 }
