@@ -14,8 +14,12 @@
 .aside-body {
   height: calc(100% - 3.688rem);
   display: flex;
+}
+.display-list-empty {
+  display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 .aside-body-img {
   width: 13.875rem;
@@ -62,4 +66,14 @@
   font-size: 14px;
   text-align: center;
   color: #fff;
+}
+/* ul */
+.list-data {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.iconsafe {
+  width: 34px;
+  height: 39px;
 }

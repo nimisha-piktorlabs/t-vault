@@ -16,6 +16,7 @@ import "./safes.component.css";
 // import SafeIcon from "../../assets/images/icon_safe.svg";
 
 // import Modal from "../../components/modal/modal";
+import { useSelector, useDispatch } from "react-redux";
 import SafeSideNav from "./safeSideNav/safeSidenav";
 import SafeMainContent from "./safeMainContent/safeMainContent";
 
@@ -23,6 +24,7 @@ function SafePage() {
   return (
     <div className="page-wrapper">
       <SafeSideNav />
+
       <SafeMainContent />
     </div>
   );

@@ -9,15 +9,13 @@ function SafeForm({ closeModalHandler }) {
   const [inputValues, setInputValues] = useState({});
   const dispatch = useDispatch();
 
-  const data = useSelector((state) => state.safe);
-
   const submitHandler = (e) => {
     e.preventDefault();
     console.log(inputValues);
     dispatch(createSafe(inputValues));
 
     console.log("You clicked submit.");
-    console.log(data);
+    closeModalHandler();
   };
   //   useDispatch(createSafe({ name: "safe1" }));
   //   console.log(data);

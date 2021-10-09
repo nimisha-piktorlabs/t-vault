@@ -1,15 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
-// import Demo from './components/main/section/demo';
-import Header from './components/header/header';
-import Main from './components/main/main';
+import logo from "./logo.svg";
+import "./App.css";
+import Header from "./components/header/header";
+import SafePage from "./pages/safes/safes.component";
+
+import ValutPage from "./pages/valut/vault";
 
 function App() {
   return (
     <div className="App">
-      <Header/>
-      <Main/>
-      
+      <Header />
+      <div className="main">
+        <SafePage />
+      </div>
     </div>
   );
 }

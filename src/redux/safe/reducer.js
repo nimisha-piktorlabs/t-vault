@@ -1,6 +1,7 @@
 const intialState = {
   safe: [],
 };
+
 function safeReducer(state = intialState, action) {
   switch (action.type) {
     case "createSafe":
@@ -10,6 +11,9 @@ function safeReducer(state = intialState, action) {
           ...state.safe,
           {
             safeName: action.payload.safename,
+            Owner: action.payload.owner,
+            SelectType: action.payload.selectType,
+            Description: action.payload.description,
           },
         ],
       };
