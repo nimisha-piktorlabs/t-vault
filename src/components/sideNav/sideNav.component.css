@@ -34,6 +34,10 @@
   display: flex;
   right: 1rem;
 }
+.button-img-list:hover,
+.button-img:hover {
+  cursor: pointer;
+}
 .all-safe-count {
   font-weight: normal;
   color: #5e627c;

@@ -2,6 +2,13 @@ import React from "react";
 import Logo from "../../assets/images/logo.png";
 import "./header.css";
 function Header() {
+  const headerNav = [
+    "Safes",
+    "Vault AppRoles",
+    "Service Accounts",
+    "IAM Service Accounts",
+    "Azure Active Directory",
+  ];
   return (
     <header>
       <div className="header-wrapper">
@@ -11,11 +18,13 @@ function Header() {
             <span class="T-VAULT">T-VAULT</span>
           </div>
           <ul className="middle-section">
-            <li>Safes</li>
-            <li>Vault AppRoles</li>
+            {headerNav.map((nav) => {
+              return <li>{nav}</li>;
+            })}
+            {/* <li>Vault AppRoles</li>
             <li>Service Accounts</li>
             <li>IAM Service Accounts</li>
-            <li>Azure Active Directory</li>
+            <li>Azure Active Directory</li> */}
           </ul>
         </div>
 
