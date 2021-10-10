@@ -13,7 +13,8 @@
 }
 .aside-body {
   height: calc(100% - 3.688rem);
-  display: flex;
+
+  position: relative;
 }
 .display-list-empty {
   display: flex;
@@ -26,6 +27,12 @@
   height: 16.288rem;
   display: flex;
   align-items: center;
+}
+.button-img-list {
+  position: absolute;
+  bottom: 1rem;
+  display: flex;
+  right: 1rem;
 }
 .all-safe-count {
   font-weight: normal;
@@ -46,8 +53,8 @@
   height: 3.688rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 7px;
+  justify-content: space-around;
+  /* padding: 7px; */
   border-bottom: 1px solid #2a2e3e;
 }
 .search-box {
@@ -72,8 +79,4 @@
   width: 100%;
   display: flex;
   align-items: center;
-}
-.iconsafe {
-  width: 34px;
-  height: 39px;
 }

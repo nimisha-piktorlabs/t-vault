@@ -19,10 +19,10 @@ function Header() {
           </ul>
         </div>
 
-        <ul className="right-section">
-          <li>Documentation</li>
-          <li>(Admin) Davis R.</li>
-        </ul>
+        <div className="right-section">
+          <span>Documentation</span>
+          <span>(Admin) Davis R.</span>
+        </div>
       </div>
     </header>
   );

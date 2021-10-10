@@ -77,9 +77,9 @@ function SafeForm({ closeModalHandler }) {
         Please add a minimum of 10 characters
       </span>
       <div className="btn-div">
-        <span className="cancel-btn" onClick={closeModalHandler}>
+        <div className="cancel-btn" onClick={closeModalHandler}>
           Cancel
-        </span>
+        </div>
         <Button modal_create_btn="create-btn" data=" + Create" />
       </div>
     </form>

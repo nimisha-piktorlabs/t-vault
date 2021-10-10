@@ -7,7 +7,7 @@ function SafeMainContent() {
   return (
     <MainContent>
       <div className="banner">
-        <img src={banner} alt="banner" className="banner-img" />
+        {/* <img src={banner} alt="banner" className="banner-img" /> */}
         <div className="text-centered">
           <span className="main-text">No Safes Created Yet</span>
           <br />

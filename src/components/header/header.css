@@ -50,7 +50,7 @@ header {
   align-items: center;
 }
 .middle-section li,
-.right-section li {
+.right-section span {
   height: 100%;
 
   display: flex;
@@ -58,8 +58,10 @@ header {
   padding: 0 0.625rem;
 }
 .middle-section li:hover {
+  cursor: pointer;
   background-image: linear-gradient(to top, #72134b, #1d212c);
 }
-.right-section li:hover {
+.right-section span:hover {
+  cursor: pointer;
   background-image: linear-gradient(to top, #72134b, #1d212c);
 }

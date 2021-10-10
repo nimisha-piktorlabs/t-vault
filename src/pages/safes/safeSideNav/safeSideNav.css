@@ -44,3 +44,47 @@ label {
   height: 50px;
   outline: none;
 }
+
+.list-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  width: 100%;
+}
+.list-content-left {
+  display: flex;
+  align-items: center;
+}
+.list-data {
+  border-bottom: 1px solid #bbb;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.list-data:hover {
+  cursor: pointer;
+  background-image: linear-gradient(to right, #72134b, #1d212c);
+}
+.iconsafe {
+  width: 34px;
+  height: 39px;
+  margin: 10px;
+}
+.edit-icon {
+  margin-right: 7px;
+}
+.delete-icon {
+}
+
+.edit-delete-icon-container {
+  display: flex;
+}
+
+.aside-body-img-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}

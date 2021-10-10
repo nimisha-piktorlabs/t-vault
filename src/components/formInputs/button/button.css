@@ -24,4 +24,13 @@
   background-color: white;
   color: #e20074;
   border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cancel-btn:hover {
+  cursor: pointer;
+}
+.create-btn:hover {
+  cursor: pointer;
 }
