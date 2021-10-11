@@ -5,6 +5,7 @@ function InputField({
   modal_inputfield_cls,
   placeholder,
   name,
+  value,
   onChangeHandler,
 }) {
   return (
@@ -14,6 +15,7 @@ function InputField({
       placeholder={placeholder}
       onChange={onChangeHandler}
       name={name}
+      value={value}
     />
   );
 }

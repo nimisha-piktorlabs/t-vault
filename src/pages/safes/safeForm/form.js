@@ -3,18 +3,24 @@ import InputField from "../../../components/formInputs/inputField/inputField";
 import TextArea from "../../../components/formInputs/textArea/textArea";
 import Button from "../../../components/formInputs/button/button";
 import { useSelector, useDispatch } from "react-redux";
-import { createSafe } from "../../../redux/safe/actions";
-function SafeForm({ closeModalHandler }) {
+import { createSafe, updateSafe } from "../../../redux/safe/actions";
+function SafeForm({ closeModalHandler, currentFormValue, currentFormIndex }) {
   const [inputSafeName, setInputSafeName] = useState("");
-  const [inputValues, setInputValues] = useState({});
+  //val fun
+
+  const [inputValues, setInputValues] = useState(currentFormValue);
   const dispatch = useDispatch();
 
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log(inputValues);
-    dispatch(createSafe(inputValues));
 
-    console.log("You clicked submit.");
+    if (currentFormIndex != undefined) {
+      console.log("updated input", inputValues);
+      dispatch(updateSafe({ index: currentFormIndex, values: inputValues }));
+    } else {
+      dispatch(createSafe(inputValues));
+    }
+
     closeModalHandler();
   };
   //   useDispatch(createSafe({ name: "safe1" }));
@@ -29,6 +35,7 @@ function SafeForm({ closeModalHandler }) {
           placeholder="safe name"
           label="Name"
           name="safename"
+          value={inputValues.safename}
           onChangeHandler={(e) =>
             setInputValues({ ...inputValues, [e.target.name]: e.target.value })
           }
@@ -42,6 +49,7 @@ function SafeForm({ closeModalHandler }) {
         placeholder="owner"
         label="Name"
         name="owner"
+        value={inputValues.owner}
         onChangeHandler={(e) =>
           setInputValues({ ...inputValues, [e.target.name]: e.target.value })
         }
@@ -69,6 +77,7 @@ function SafeForm({ closeModalHandler }) {
         modal_textarea="modaltextarea"
         placeholder="Description"
         name="description"
+        value={inputValues.description}
         onChangeHandler={(e) =>
           setInputValues({ ...inputValues, [e.target.name]: e.target.value })
         }
@@ -80,7 +89,11 @@ function SafeForm({ closeModalHandler }) {
         <div className="cancel-btn" onClick={closeModalHandler}>
           Cancel
         </div>
-        <Button modal_create_btn="create-btn" data=" + Create" />
+        {currentFormIndex ? (
+          <Button modal_create_btn="create-btn" data=" Update" />
+        ) : (
+          <Button modal_create_btn="create-btn" data=" + Create" />
+        )}
       </div>
     </form>
   );

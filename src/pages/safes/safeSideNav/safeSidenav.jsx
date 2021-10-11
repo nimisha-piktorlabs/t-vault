@@ -16,15 +16,38 @@ import SafeIcon from "../../../assets/images/icon_safe.svg";
 import Modal from "../../../components/modal/modal";
 import SafeForm from "../safeForm/form";
 import { useSelector, useDispatch } from "react-redux";
+import { deleteSafe, editSafe } from "../../../redux/safe/actions";
 function SafeSideNav() {
+  const [CurrentValues, setCureentValues] = useState({});
+  const [CurrentIndex, setCureentIndex] = useState();
   const [showModal, setShowModal] = useState(false);
   const openModal = () => {
     setShowModal(true);
   };
   const data = useSelector((state) => state.safe);
-  console.log("data ", data);
-  console.log("data len", data.length);
+  //console.log("data ", data);
+
   const isData = data.length ? true : false;
+  //deltet handler
+  const dispatch = useDispatch();
+  const deleteHandler = (i) => {
+    // console.log(i);
+    dispatch(deleteSafe(i));
+  };
+  //edit handler
+  // let currentdata = {};
+  const editHandler = (i) => {
+    const [val] = data.filter((item, index) => index == i);
+    // console.log("vaal", val);
+    setCureentValues(val);
+
+    setCureentIndex(i);
+    // currentdata = val;
+    // console.log("before modal", currentdata);
+
+    setShowModal(true);
+    //  dispatch(editSafe(i));
+  };
 
   return (
     <Sidenav>
@@ -32,7 +55,7 @@ function SafeSideNav() {
         <div className="all-safe">
           <span>All Safes</span>
 
-          <span className="all-safe-count">(0)</span>
+          <span className="all-safe-count">({data.length})</span>
           <span className="arrow-icon">
             <img src={arrowDownIcon} alt="arrow" className="arrow-down-icon" />
           </span>
@@ -60,7 +83,7 @@ function SafeSideNav() {
                           srcset=""
                           className="iconsafe"
                         />
-                        {dat.safeName}
+                        {dat.safename}
                       </div>
 
                       <div className="edit-delete-icon-container">
@@ -69,12 +92,14 @@ function SafeSideNav() {
                           alt=""
                           srcset=""
                           className="edit-icon"
+                          onClick={() => editHandler(i)}
                         />
                         <img
                           src={DeleteIcon}
                           alt=""
                           srcset=""
                           className="delete-icon"
+                          onClick={() => deleteHandler(i)}
                         />
                       </div>
                     </div>
@@ -129,7 +154,11 @@ function SafeSideNav() {
                     </span>
                   </div>
                 </div>
-                <SafeForm closeModalHandler={() => setShowModal(false)} />
+                <SafeForm
+                  closeModalHandler={() => setShowModal(false)}
+                  currentFormValue={CurrentValues}
+                  currentFormIndex={CurrentIndex}
+                />
               </Modal>
             )}
           </div>

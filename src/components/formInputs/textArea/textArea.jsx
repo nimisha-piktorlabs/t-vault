@@ -1,6 +1,12 @@
 import React from "react";
 import "./textArea.css";
-function TextArea({ modal_textarea, placeholder, onChangeHandler, name }) {
+function TextArea({
+  modal_textarea,
+  placeholder,
+  onChangeHandler,
+  name,
+  value,
+}) {
   return (
     <textarea
       id=""
@@ -10,6 +16,7 @@ function TextArea({ modal_textarea, placeholder, onChangeHandler, name }) {
       placeholder={placeholder}
       onChange={onChangeHandler}
       name={name}
+      value={value}
     ></textarea>
   );
 }
