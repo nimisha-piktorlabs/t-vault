@@ -56,9 +56,9 @@ function SafeSideNav() {
           <span>All Safes</span>
 
           <span className="all-safe-count">({data.length})</span>
-          <span className="arrow-icon">
+          {/* <span className="arrow-icon">
             <img src={arrowDownIcon} alt="arrow" className="arrow-down-icon" />
-          </span>
+          </span> */}
         </div>
 
         <div className="search-box">
@@ -118,9 +118,9 @@ function SafeSideNav() {
             </span>
           </div>
         )}
-        <div className="display-list-empty">
-          <div className="imgdiv">
-            {!isData && (
+        {!isData && (
+          <div className="display-list-empty">
+            <div className="imgdiv">
               <div className="aside-body-img-container">
                 <img src={asideBodyImg} alt="img" className="aside-body-img" />
                 <span className="create-safe-text">
@@ -136,33 +136,33 @@ function SafeSideNav() {
                   />
                 </span>
               </div>
-            )}
-            {/* if stattemenet */}
-            {showModal && (
-              <Modal>
-                <div className="modal-header">
-                  <span className="modal-title">Create Safe</span>
-                  <div className="header-content">
-                    <span className="safe-icon">
-                      <img src={SafeIcon} alt="" />
-                    </span>
-                    <span className="modal-header-text">
-                      A Safe is a logical unit to store the secrets. All the
-                      safes are created within Vault. You can control access
-                      only at the safe level. As a vault administrator you can
-                      manage safes but cannot view the content of the safe.
-                    </span>
-                  </div>
-                </div>
-                <SafeForm
-                  closeModalHandler={() => setShowModal(false)}
-                  currentFormValue={CurrentValues}
-                  currentFormIndex={CurrentIndex}
-                />
-              </Modal>
-            )}
+            </div>
           </div>
-        </div>
+        )}
+        {/* if stattemenet */}
+        {showModal && (
+          <Modal>
+            <div className="modal-header">
+              <span className="modal-title">Create Safe</span>
+              <div className="header-content">
+                <span className="safe-icon">
+                  <img src={SafeIcon} alt="" />
+                </span>
+                <span className="modal-header-text">
+                  A Safe is a logical unit to store the secrets. All the safes
+                  are created within Vault. You can control access only at the
+                  safe level. As a vault administrator you can manage safes but
+                  cannot view the content of the safe.
+                </span>
+              </div>
+            </div>
+            <SafeForm
+              closeModalHandler={() => setShowModal(false)}
+              currentFormValue={CurrentValues}
+              currentFormIndex={CurrentIndex}
+            />
+          </Modal>
+        )}
       </div>
     </Sidenav>
   );

@@ -77,9 +77,10 @@ label {
   margin: 10px;
 }
 .edit-icon {
-  margin-right: 7px;
+  padding-right: 12px;
 }
 .delete-icon {
+  padding-right: 20px;
 }
 
 .edit-delete-icon-container {

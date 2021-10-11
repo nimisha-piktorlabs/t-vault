@@ -65,10 +65,12 @@ function SafeForm({ closeModalHandler, currentFormValue, currentFormIndex }) {
           setInputValues({ ...inputValues, [e.target.name]: e.target.value })
         }
       >
-        <option value="Personal">Personal</option>
+        <option value="Personal" selected>
+          Personal
+        </option>
         <option value="Official">Official</option>
 
-        <option value=" " selected></option>
+        {/* <option value=" "></option> */}
       </select>
 
       {/* select end  */}
