@@ -1,5 +1,6 @@
 const intialState = {
   safe: [],
+  activeSafe: "",
 };
 
 function safeReducer(state = intialState, action) {
@@ -14,6 +15,7 @@ function safeReducer(state = intialState, action) {
             owner: action.payload.owner,
             selectType: action.payload.selectType,
             description: action.payload.description,
+            secret: [],
           },
         ],
       };
@@ -38,6 +40,42 @@ function safeReducer(state = intialState, action) {
         safe: updatedSafeData,
       };
 
+    case "createSecret":
+      let secretId = action.payload.index;
+      let secretdatas = action.payload.secretData;
+      let updatedSecretData = state.safe.map((s, index) => {
+        if (index == secretId) {
+          // const shallowCopy = Object.assign({}, s);
+          // shallowCopy.secret.push(action.payload.secretData);
+          // return shallowCopy;
+          // console.log(index, "safe index found", action.payload.index);
+          return {
+            ...s,
+            secret: [...s.secret, action.payload.secretData],
+          };
+        } else {
+          console.log(index, "not found", action.payload.index);
+          return s;
+        }
+        // console.log(index, "not found", action.payload.index);
+        // return safe;
+      });
+      console.log("se-id", updatedSecretData);
+
+      console.log("se-data", secretdatas);
+
+      return {
+        ...state,
+        safe: updatedSecretData,
+      };
+    case "getSecret":
+      let safeindex = action.payload;
+      console.log("safe id reducert", safeindex);
+      // state.activeSafe = safeindex;
+      return {
+        ...state,
+        activeSafe: safeindex,
+      };
     default:
       return state;
   }

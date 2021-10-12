@@ -16,38 +16,59 @@ import SafeIcon from "../../../assets/images/icon_safe.svg";
 import Modal from "../../../components/modal/modal";
 import SafeForm from "../safeForm/form";
 import { useSelector, useDispatch } from "react-redux";
-import { deleteSafe, editSafe } from "../../../redux/safe/actions";
+import { deleteSafe, getSecret } from "../../../redux/safe/actions";
 function SafeSideNav() {
   const [CurrentValues, setCureentValues] = useState({});
   const [CurrentIndex, setCureentIndex] = useState();
   const [showModal, setShowModal] = useState(false);
-  const openModal = () => {
+
+  const openModalCreate = () => {
+    setCureentValues({});
+    setCureentIndex();
     setShowModal(true);
   };
+
   const data = useSelector((state) => state.safe);
   //console.log("data ", data);
 
   const isData = data.length ? true : false;
   //deltet handler
   const dispatch = useDispatch();
+  const safeOnClickHandler = (i) => {
+    console.log(i);
+    dispatch(getSecret(i));
+  };
   const deleteHandler = (i) => {
-    // console.log(i);
     dispatch(deleteSafe(i));
   };
   //edit handler
   // let currentdata = {};
   const editHandler = (i) => {
     const [val] = data.filter((item, index) => index == i);
-    // console.log("vaal", val);
+
     setCureentValues(val);
-
     setCureentIndex(i);
-    // currentdata = val;
-    // console.log("before modal", currentdata);
-
     setShowModal(true);
+    console.log("vaal index", CurrentIndex);
     //  dispatch(editSafe(i));
   };
+
+  const [filteredData, setFilteredData] = useState(data);
+  const searchHandler = (e) => {
+    let value = e.target.value.toLowerCase();
+    let result = [];
+    if (value)
+      result = data.filter((data) => {
+        return data.safename.search(value) != -1;
+      });
+    else {
+      result = data;
+    }
+    setFilteredData(result);
+  };
+  console.log("filtered data", filteredData);
+
+  //secret
 
   return (
     <Sidenav>
@@ -55,7 +76,7 @@ function SafeSideNav() {
         <div className="all-safe">
           <span>All Safes</span>
 
-          <span className="all-safe-count">({data.length})</span>
+          <span className="all-safe-count">({filteredData.length})</span>
           {/* <span className="arrow-icon">
             <img src={arrowDownIcon} alt="arrow" className="arrow-down-icon" />
           </span> */}
@@ -63,18 +84,26 @@ function SafeSideNav() {
 
         <div className="search-box">
           <div className="input-icon">
-            <img src={searchIcon} alt="icon" />
+            <img src={searchIcon} alt="icon" className="search-icon" />
           </div>
-          <input type="text" placeholder="Search" className="input-box" />
+          <input
+            type="text"
+            placeholder="Search"
+            className="input-box"
+            onChange={searchHandler}
+          />
         </div>
       </div>
       <div className="aside-body">
         {isData && (
           <div className="list-container">
             <ul className="list-data-ul">
-              {data.map((dat, i) => {
+              {filteredData.map((dat, i) => {
                 return (
-                  <li className="list-data">
+                  <li
+                    className="list-data"
+                    onClick={() => safeOnClickHandler(i)}
+                  >
                     <div className="list-content">
                       <div className="list-content-left">
                         <img
@@ -113,7 +142,7 @@ function SafeSideNav() {
                 alt=""
                 srcset=""
                 className="button-img-list"
-                onClick={openModal}
+                onClick={openModalCreate}
               />
             </span>
           </div>
@@ -126,16 +155,16 @@ function SafeSideNav() {
                 <span className="create-safe-text">
                   Create a Safe to get started!
                 </span>
-                <span>
-                  <img
-                    src={ButtonImg}
-                    alt=""
-                    srcset=""
-                    className="button-img"
-                    onClick={openModal}
-                  />
-                </span>
               </div>
+              <span>
+                <img
+                  src={ButtonImg}
+                  alt=""
+                  srcset=""
+                  className="button-img"
+                  onClick={openModalCreate}
+                />
+              </span>
             </div>
           </div>
         )}

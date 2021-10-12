@@ -57,6 +57,10 @@ header {
   align-items: center;
   padding: 0 0.625rem;
 }
+.middle-section li a {
+  text-decoration: none;
+  color: white;
+}
 .middle-section li:hover {
   cursor: pointer;
   background-image: linear-gradient(to top, #72134b, #1d212c);

@@ -1,0 +1,26 @@
+.secret-container {
+  width: 100%;
+  background-color: #1c1f29;
+}
+.list-secret {
+  color: #d0d0d0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  background-color: #2b2e36;
+  border-bottom: 1px solid #2a2e3e;
+}
+.list-secret:hover {
+  background-image: linear-gradient(to right, #72134b, #1d212c);
+}
+
+.icon-folder {
+  width: 40px;
+  height: 40px;
+  flex-grow: 0;
+  margin: 0 16px 0 8px;
+}
+.add-folder-icon {
+  padding-left: 0.625rem;
+}

@@ -9,6 +9,7 @@
   height: 11.938rem;
   position: relative;
   background-image: url(../../assets/images/Banner_img.svg);
+  margin-top: -7.5px;
 }
 .banner-img {
   position: absolute;
@@ -42,8 +43,8 @@
   flex-direction: column;
 }
 .secretimg {
-  width: 13.75rem;
-  height: 13.75rem;
+  width: 11rem;
+  height: 11rem;
   text-align: center;
 }
 .main-area-header {
@@ -69,9 +70,9 @@
   padding-left: 0.625rem;
 }
 .main-area-body {
-  display: flex;
+  /* display: flex;
 
-  justify-content: center;
+  justify-content: center; */
   height: 100%;
 }
 .container {
@@ -94,6 +95,7 @@
   font-size: 14px;
   font-weight: bold;
   color: #fff;
+  border: none;
 }
 .text-style {
   font-family: Roboto;

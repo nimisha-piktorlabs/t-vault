@@ -1,13 +1,19 @@
 import React from "react";
 import Logo from "../../assets/images/logo.png";
 import "./header.css";
+import { Link } from "react-router-dom";
 function Header() {
   const headerNav = [
-    "Safes",
-    "Vault AppRoles",
-    "Service Accounts",
-    "IAM Service Accounts",
-    "Azure Active Directory",
+    { text: "Safes", path: "/safe" },
+    { text: "Vault AppRoles", path: "/vault" },
+    { text: "Service Accounts", path: "/service" },
+
+    { text: "IAM Service Accounts", path: "/iam" },
+    { text: "Azure Active Directory", path: "/azure" },
+
+    // "Service Accounts",
+    // ,
+    // "Azure Active Directory",
   ];
   return (
     <header>
@@ -18,13 +24,15 @@ function Header() {
             <span class="T-VAULT">T-VAULT</span>
           </div>
           <ul className="middle-section">
-            {headerNav.map((nav) => {
-              return <li>{nav}</li>;
+            {headerNav.map((nav, i) => {
+              return (
+                <li>
+                  <Link to={`${nav.path}?name=${nav.text}&id=${i}`}>
+                    {nav.text}
+                  </Link>
+                </li>
+              );
             })}
-            {/* <li>Vault AppRoles</li>
-            <li>Service Accounts</li>
-            <li>IAM Service Accounts</li>
-            <li>Azure Active Directory</li> */}
           </ul>
         </div>
 

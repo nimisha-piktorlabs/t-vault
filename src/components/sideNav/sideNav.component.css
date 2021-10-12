@@ -10,6 +10,7 @@
   height: 2.75rem;
   border: none;
   outline: none;
+  color: #fff;
 }
 .aside-body {
   height: calc(100% - 3.688rem);
@@ -74,12 +75,7 @@
 
   flex-direction: column;
 }
-.create-safe-text {
-  line-height: 1.29;
-  font-size: 14px;
-  text-align: center;
-  color: #fff;
-}
+
 /* ul */
 .list-data {
   width: 100%;

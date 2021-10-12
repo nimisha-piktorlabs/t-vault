@@ -10,3 +10,12 @@ export function updateSafe(data) {
   console.log("action payload", data);
   return { type: "updateSafe", payload: data };
 }
+export function createSecret(secret) {
+  console.log("action payload", secret);
+  return { type: "createSecret", payload: secret };
+}
+
+export function getSecret(safeId) {
+  console.log("action getSecret", safeId);
+  return { type: "getSecret", payload: safeId };
+}

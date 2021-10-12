@@ -10,12 +10,12 @@ function SafeForm({ closeModalHandler, currentFormValue, currentFormIndex }) {
 
   const [inputValues, setInputValues] = useState(currentFormValue);
   const dispatch = useDispatch();
-
+  console.log(currentFormValue);
   const submitHandler = (e) => {
     e.preventDefault();
 
     if (currentFormIndex != undefined) {
-      console.log("updated input", inputValues);
+      // console.log("updated input", inputValues);
       dispatch(updateSafe({ index: currentFormIndex, values: inputValues }));
     } else {
       dispatch(createSafe(inputValues));
@@ -91,7 +91,7 @@ function SafeForm({ closeModalHandler, currentFormValue, currentFormIndex }) {
         <div className="cancel-btn" onClick={closeModalHandler}>
           Cancel
         </div>
-        {currentFormIndex ? (
+        {currentFormIndex != undefined ? (
           <Button modal_create_btn="create-btn" data=" Update" />
         ) : (
           <Button modal_create_btn="create-btn" data=" + Create" />
