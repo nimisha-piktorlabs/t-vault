@@ -13,15 +13,18 @@ function SafeForm({ closeModalHandler, currentFormValue, currentFormIndex }) {
 
   const submitHandler = (e) => {
     e.preventDefault();
-
-    if (currentFormIndex != undefined) {
-      // console.log("updated input", inputValues);
-      dispatch(updateSafe({ index: currentFormIndex, values: inputValues }));
+    if (inputValues.description.length < 10) {
+      alert("Enter more characters");
     } else {
-      dispatch(createSafe(inputValues));
-    }
+      if (currentFormIndex != undefined) {
+        // console.log("updated input", inputValues);
+        dispatch(updateSafe({ index: currentFormIndex, values: inputValues }));
+      } else {
+        dispatch(createSafe(inputValues));
+      }
 
-    closeModalHandler();
+      closeModalHandler();
+    }
   };
   //   useDispatch(createSafe({ name: "safe1" }));
   //   console.log(data);

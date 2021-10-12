@@ -16,6 +16,7 @@ function InputField({
       onChange={onChangeHandler}
       name={name}
       value={value}
+      required
     />
   );
 }

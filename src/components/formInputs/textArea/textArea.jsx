@@ -17,6 +17,7 @@ function TextArea({
       onChange={onChangeHandler}
       name={name}
       value={value}
+      required
     ></textarea>
   );
 }

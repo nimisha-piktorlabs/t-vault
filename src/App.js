@@ -6,7 +6,12 @@ import VaultPage from "./pages/vault/vault";
 import IamPage from "./pages/iam/iam";
 import AzurePage from "./pages/azure/azure";
 import ServiceAcountPage from "./pages/serviceAcount/serviceAcount";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 
 function App() {
   return (
@@ -15,6 +20,13 @@ function App() {
         <Header />
         <div className="main">
           <Switch>
+            <Route
+              exact
+              path="/"
+              render={() => {
+                return <Redirect to="/safe" />;
+              }}
+            />
             <Route path="/safe" component={SafePage} />
             <Route path="/vault" component={VaultPage} />
             <Route path="/iam" component={IamPage} />

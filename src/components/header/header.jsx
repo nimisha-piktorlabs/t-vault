@@ -1,7 +1,7 @@
 import React from "react";
 import Logo from "../../assets/images/logo.png";
 import "./header.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 function Header() {
   const headerNav = [
     { text: "Safes", path: "/safe" },
@@ -15,6 +15,7 @@ function Header() {
     // ,
     // "Azure Active Directory",
   ];
+  const location = useLocation();
   return (
     <header>
       <div className="header-wrapper">
@@ -26,7 +27,9 @@ function Header() {
           <ul className="middle-section">
             {headerNav.map((nav, i) => {
               return (
-                <li>
+                <li
+                  className={location.pathname == nav.path ? "nav-active" : ""}
+                >
                   <Link to={`${nav.path}?name=${nav.text}&id=${i}`}>
                     {nav.text}
                   </Link>

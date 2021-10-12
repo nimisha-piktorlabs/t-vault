@@ -14,6 +14,7 @@ header {
   justify-content: space-between;
   align-items: center;
   width: 80%;
+  box-shadow: 0 5px 25px 0 rgba(226, 0, 116, 0.5);
 }
 .logo-section {
   display: flex;
@@ -56,6 +57,9 @@ header {
   display: flex;
   align-items: center;
 }
+.right-section span {
+  padding: 0 0.625rem;
+}
 .middle-section li a {
   text-decoration: none;
   color: white;
@@ -67,5 +71,8 @@ header {
 }
 .right-section span:hover {
   cursor: pointer;
+  background-image: linear-gradient(to top, #72134b, #1d212c);
+}
+.nav-active {
   background-image: linear-gradient(to top, #72134b, #1d212c);
 }
