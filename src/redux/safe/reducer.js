@@ -21,7 +21,7 @@ function safeReducer(state = intialState, action) {
       };
 
     case "deleteSafe":
-      // console.log("action payload", action.payload);
+      console.log(" deleet action payload", action.payload);
       return {
         ...state,
         safe: state.safe.filter((item, index) => index != action.payload),
@@ -33,7 +33,6 @@ function safeReducer(state = intialState, action) {
           return { ...safe, ...action.payload.values };
         else return safe;
       });
-      console.log("updated data", updatedSafeData);
 
       return {
         ...state,
@@ -54,15 +53,11 @@ function safeReducer(state = intialState, action) {
             secret: [...s.secret, action.payload.secretData],
           };
         } else {
-          console.log(index, "not found", action.payload.index);
           return s;
         }
         // console.log(index, "not found", action.payload.index);
         // return safe;
       });
-      console.log("se-id", updatedSecretData);
-
-      console.log("se-data", secretdatas);
 
       return {
         ...state,
@@ -70,7 +65,7 @@ function safeReducer(state = intialState, action) {
       };
     case "getSecret":
       let safeindex = action.payload;
-      console.log("safe id reducert", safeindex);
+
       // state.activeSafe = safeindex;
       return {
         ...state,

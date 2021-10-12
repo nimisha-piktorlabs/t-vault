@@ -74,7 +74,7 @@ label {
 
 .list-data:hover {
   cursor: pointer;
-  background-image: linear-gradient(to right, #72134b, #1d212c);
+  /* background-image: linear-gradient(to right, #72134b, #1d212c); */
 }
 .iconsafe {
   width: 34px;
@@ -107,4 +107,7 @@ label {
   position: absolute;
   top: 80%;
   left: 10%;
+}
+.active {
+  background-image: linear-gradient(to right, #72134b, #1d212c);
 }

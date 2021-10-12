@@ -10,7 +10,7 @@ function SafeForm({ closeModalHandler, currentFormValue, currentFormIndex }) {
 
   const [inputValues, setInputValues] = useState(currentFormValue);
   const dispatch = useDispatch();
-  console.log(currentFormValue);
+
   const submitHandler = (e) => {
     e.preventDefault();
 
@@ -35,6 +35,7 @@ function SafeForm({ closeModalHandler, currentFormValue, currentFormIndex }) {
           placeholder="safe name"
           label="Name"
           name="safename"
+          required
           value={inputValues.safename}
           onChangeHandler={(e) =>
             setInputValues({ ...inputValues, [e.target.name]: e.target.value })
@@ -49,6 +50,7 @@ function SafeForm({ closeModalHandler, currentFormValue, currentFormIndex }) {
         placeholder="owner"
         label="Name"
         name="owner"
+        required
         value={inputValues.owner}
         onChangeHandler={(e) =>
           setInputValues({ ...inputValues, [e.target.name]: e.target.value })
@@ -83,6 +85,7 @@ function SafeForm({ closeModalHandler, currentFormValue, currentFormIndex }) {
         onChangeHandler={(e) =>
           setInputValues({ ...inputValues, [e.target.name]: e.target.value })
         }
+        required
       />
       <span className="modal-bottom-text">
         Please add a minimum of 10 characters

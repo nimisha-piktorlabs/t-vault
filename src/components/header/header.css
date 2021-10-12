@@ -55,11 +55,11 @@ header {
 
   display: flex;
   align-items: center;
-  padding: 0 0.625rem;
 }
 .middle-section li a {
   text-decoration: none;
   color: white;
+  padding: 1.7rem 0.625rem;
 }
 .middle-section li:hover {
   cursor: pointer;

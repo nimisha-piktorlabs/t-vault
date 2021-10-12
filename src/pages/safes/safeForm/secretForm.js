@@ -5,12 +5,13 @@ import { useSelector, useDispatch } from "react-redux";
 import { createSecret } from "../../../redux/safe/actions";
 
 function SecretForm({ closeModalHandler }) {
+  const activesafeid = useSelector((state) => state.activeSafe);
   const [inputSecret, setInputSecret] = useState();
   const dispatch = useDispatch();
   const submitHandler = (e) => {
     e.preventDefault();
     console.log(e);
-    dispatch(createSecret({ secretData: inputSecret, index: 1 }));
+    dispatch(createSecret({ secretData: inputSecret, index: activesafeid }));
 
     closeModalHandler();
   };

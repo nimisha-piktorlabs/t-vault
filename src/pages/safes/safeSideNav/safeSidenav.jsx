@@ -17,56 +17,56 @@ import Modal from "../../../components/modal/modal";
 import SafeForm from "../safeForm/form";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteSafe, getSecret } from "../../../redux/safe/actions";
+
 function SafeSideNav() {
   const [CurrentValues, setCureentValues] = useState({});
   const [CurrentIndex, setCureentIndex] = useState();
   const [showModal, setShowModal] = useState(false);
+  const [searchKey, setSearchKey] = useState("");
+  const activesafeid = useSelector((state) => state.activeSafe);
 
   const openModalCreate = () => {
     setCureentValues({});
     setCureentIndex();
     setShowModal(true);
   };
-
-  const data = useSelector((state) => state.safe);
-  //console.log("data ", data);
-
+  //---------search ------------------------------
+  let data = useSelector((state) => state.safe);
+  if (searchKey != "") {
+    data = data.filter((data) => {
+      return data.safename.search(searchKey) != -1;
+    });
+  }
+  //---------search --------end ----------------------
   const isData = data.length ? true : false;
-  //deltet handler
+
   const dispatch = useDispatch();
+
   const safeOnClickHandler = (i) => {
-    console.log(i);
     dispatch(getSecret(i));
   };
+  //.....................deltet handler ..................../
   const deleteHandler = (i) => {
     dispatch(deleteSafe(i));
   };
   //edit handler
-  // let currentdata = {};
   const editHandler = (i) => {
     const [val] = data.filter((item, index) => index == i);
 
     setCureentValues(val);
     setCureentIndex(i);
     setShowModal(true);
-    console.log("vaal index", CurrentIndex);
+
     //  dispatch(editSafe(i));
   };
-
-  const [filteredData, setFilteredData] = useState(data);
+  //---------search ------------------------------
+  // const [filteredData, setFilteredData] = useState(data);
   const searchHandler = (e) => {
     let value = e.target.value.toLowerCase();
-    let result = [];
-    if (value)
-      result = data.filter((data) => {
-        return data.safename.search(value) != -1;
-      });
-    else {
-      result = data;
-    }
-    setFilteredData(result);
+    setSearchKey(value);
   };
-  console.log("filtered data", filteredData);
+
+  // --------------------serch end -------------------
 
   //secret
 
@@ -76,7 +76,7 @@ function SafeSideNav() {
         <div className="all-safe">
           <span>All Safes</span>
 
-          <span className="all-safe-count">({filteredData.length})</span>
+          <span className="all-safe-count">({data.length})</span>
           {/* <span className="arrow-icon">
             <img src={arrowDownIcon} alt="arrow" className="arrow-down-icon" />
           </span> */}
@@ -98,10 +98,12 @@ function SafeSideNav() {
         {isData && (
           <div className="list-container">
             <ul className="list-data-ul">
-              {filteredData.map((dat, i) => {
+              {data.map((dat, i) => {
+                let activeClass = activesafeid == i ? "active" : "";
+
                 return (
                   <li
-                    className="list-data"
+                    className={`list-data ${activeClass}`}
                     onClick={() => safeOnClickHandler(i)}
                   >
                     <div className="list-content">

@@ -21,11 +21,7 @@ function SafeMainContent() {
     );
 
     secretData = activeSafeData ? activeSafeData.secret : [];
-
-    console.log("activesafe", activeSafeData.secret);
   }
-
-  console.log("secret safe length", secretData.length);
 
   // data.length && val.length();
 
@@ -79,7 +75,7 @@ function SafeMainContent() {
             <ul className="secret-ul">
               {secretData.map((secret, i) => {
                 return (
-                  <li className="list-secret">
+                  <li className="list-secret active-li">
                     <img src={IconFolder} alt="" className="icon-folder" />
                     {secret}
                   </li>
