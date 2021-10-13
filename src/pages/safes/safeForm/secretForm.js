@@ -17,12 +17,12 @@ function SecretForm({ closeModalHandler }) {
   };
   return (
     <form onSubmit={submitHandler}>
-      <div className="form-group">
-        <label htmlFor="input-field"> Safe Name</label>
+      <div className="form-group-secret">
+        <label htmlFor="input-field"> Folder Name</label>
         <InputField
           modal_inputfield_cls="modalinput"
           type="text"
-          placeholder="safe name"
+          placeholder="Folder name"
           label="Name"
           name="secret"
           value={inputSecret}
@@ -30,6 +30,9 @@ function SecretForm({ closeModalHandler }) {
         />
       </div>
       <div className="btn-div">
+        <div className="cancel-btn" onClick={closeModalHandler}>
+          Cancel
+        </div>
         <Button modal_create_btn="create-btn" data=" + Create" />
       </div>
     </form>

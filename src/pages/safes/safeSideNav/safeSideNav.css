@@ -108,6 +108,18 @@ label {
   top: 80%;
   left: 10%;
 }
+.no-data-found-text {
+  line-height: 1.29;
+  font-size: 14px;
+  text-align: center;
+  color: rgb(193 191 191);
+  position: absolute;
+  top: 80%;
+  left: 30%;
+}
 .active {
   background-image: linear-gradient(to right, #72134b, #1d212c);
+}
+.form-group-secret {
+  padding: 40px 0px;
 }

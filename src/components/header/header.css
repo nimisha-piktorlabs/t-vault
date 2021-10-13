@@ -4,7 +4,7 @@ header {
   height: 4.375rem;
 
   background-color: #151820;
-  /* background-image: linear-gradient(to top, #2f3545, #1d212c); */
+
   box-shadow: 0 5px 25px 0 rgba(226, 0, 116, 0.5);
   display: flex;
   justify-content: center;
@@ -13,7 +13,9 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 80%;
+  width: 100%;
+  padding-left: 160px;
+  padding-right: 150px;
   box-shadow: 0 5px 25px 0 rgba(226, 0, 116, 0.5);
 }
 .logo-section {

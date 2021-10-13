@@ -25,6 +25,8 @@ function SafeSideNav() {
   const [searchKey, setSearchKey] = useState("");
   const activesafeid = useSelector((state) => state.activeSafe);
 
+  const dispatch = useDispatch();
+
   const openModalCreate = () => {
     setCureentValues({});
     setCureentIndex();
@@ -36,11 +38,13 @@ function SafeSideNav() {
     data = data.filter((data) => {
       return data.safename.search(searchKey) != -1;
     });
+
+    if (data == "" && searchKey != "") {
+      console.log("dataaa no", data);
+    }
   }
   //---------search --------end ----------------------
   const isData = data.length ? true : false;
-
-  const dispatch = useDispatch();
 
   const safeOnClickHandler = (i) => {
     dispatch(getSecret(i));
@@ -149,7 +153,7 @@ function SafeSideNav() {
             </span>
           </div>
         )}
-        {!isData && (
+        {!isData && !searchKey && (
           <div className="display-list-empty">
             <div className="imgdiv">
               <div className="aside-body-img-container">
@@ -157,6 +161,25 @@ function SafeSideNav() {
                 <span className="create-safe-text">
                   Create a Safe to get started!
                 </span>
+              </div>
+              <span>
+                <img
+                  src={ButtonImg}
+                  alt=""
+                  srcset=""
+                  className="button-img"
+                  onClick={openModalCreate}
+                />
+              </span>
+            </div>
+          </div>
+        )}
+        {searchKey && !isData && (
+          <div className="display-list-empty">
+            <div className="imgdiv">
+              <div className="aside-body-img-container">
+                <img src={asideBodyImg} alt="img" className="aside-body-img" />
+                <span className="no-data-found-text">No data found</span>
               </div>
               <span>
                 <img

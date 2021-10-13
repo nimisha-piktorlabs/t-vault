@@ -11,16 +11,22 @@ import { useSelector } from "react-redux";
 function SafeMainContent() {
   const [showModal, setShowModal] = useState(false);
   const activesafeid = useSelector((state) => state.activeSafe);
+  console.log("activesttate", activesafeid);
   const data = useSelector((state) => state.safe);
 
   const isSafe = data.length ? true : false;
   let secretData = [];
+  let safeName;
+  let ownerName;
+
   if (isSafe) {
     const [activeSafeData] = data.filter(
       (item, index) => index == activesafeid
     );
 
     secretData = activeSafeData ? activeSafeData.secret : [];
+    safeName = activeSafeData ? activeSafeData.safename : "";
+    ownerName = activeSafeData ? activeSafeData.owner : "";
   }
 
   // data.length && val.length();
@@ -32,14 +38,21 @@ function SafeMainContent() {
   return (
     <MainContent>
       <div className="banner">
-        {/* <img src={banner} alt="banner" className="banner-img" /> */}
-        <div className="text-centered">
-          <span className="main-text">No Safes Created Yet</span>
-          <br />
-          <span className="sub-text">
-            Create a Safe to see your secrets, folders and permissions here
-          </span>
-        </div>
+        {!safeName ? (
+          <div className="text-centered">
+            <span className="main-text">No Safes Created Yet</span>
+            <br />
+            <span className="sub-text">
+              Create a Safe to see your secrets, folders and permissions here
+            </span>
+          </div>
+        ) : (
+          <div className="text-centered">
+            <span className="main-text">{safeName}</span>
+            <br />
+            <span className="sub-text">{ownerName}</span>
+          </div>
+        )}
       </div>
       <div className="main-area">
         <div className="main-area-header">
@@ -87,6 +100,9 @@ function SafeMainContent() {
         </div>
         {showModal && (
           <Modal>
+            <div className="modal-header">
+              <span className="modal-title">Add Folder</span>
+            </div>
             <SecretForm closeModalHandler={() => setShowModal(false)} />
           </Modal>
         )}

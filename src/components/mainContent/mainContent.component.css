@@ -81,6 +81,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+  padding-top: 30px;
 }
 .main-area-text {
   font-size: 14px;
