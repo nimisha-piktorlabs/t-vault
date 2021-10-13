@@ -178,17 +178,17 @@ function SafeSideNav() {
           <div className="display-list-empty">
             <div className="imgdiv">
               <div className="aside-body-img-container">
-                <img src={asideBodyImg} alt="img" className="aside-body-img" />
+                {/* <img src={asideBodyImg} alt="img" className="aside-body-img" /> */}
                 <span className="no-data-found-text">No data found</span>
               </div>
               <span>
-                <img
+                {/* <img
                   src={ButtonImg}
                   alt=""
                   srcset=""
                   className="button-img"
                   onClick={openModalCreate}
-                />
+                /> */}
               </span>
             </div>
           </div>

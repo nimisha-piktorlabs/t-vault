@@ -22,7 +22,7 @@
   left: 30%;
 }
 .main-text {
-  font-family: Roboto;
+  /* font-family: Roboto; */
   font-size: 24px;
   font-weight: 500;
   text-align: left;
@@ -98,6 +98,10 @@
   font-weight: bold;
   color: #fff;
   border: none;
+}
+.add-button:hover {
+  cursor: pointer;
+  background-color: #e20074;
 }
 .text-style {
   font-family: Roboto;

@@ -32,7 +32,7 @@ function SafeMainContent() {
   // data.length && val.length();
 
   const openModal = () => {
-    setShowModal(true);
+    if (safeName) setShowModal(true);
   };
 
   return (
@@ -81,7 +81,10 @@ function SafeMainContent() {
                 <span className="text-style">Secrets</span> to view them all
                 here
               </div>
-              <button className="add-button"> + Add</button>
+              <button className="add-button" onClick={openModal}>
+                {" "}
+                + Add
+              </button>
             </div>
           )}
           <div className="secret-container">

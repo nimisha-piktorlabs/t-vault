@@ -24,3 +24,6 @@
 .add-folder-icon {
   padding-left: 0.625rem;
 }
+.add-folder-icon:hover {
+  cursor: pointer;
+}
