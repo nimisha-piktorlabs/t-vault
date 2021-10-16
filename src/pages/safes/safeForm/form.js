@@ -4,6 +4,12 @@ import TextArea from "../../../components/formInputs/textArea/textArea";
 import Button from "../../../components/formInputs/button/button";
 import { useSelector, useDispatch } from "react-redux";
 import { createSafe, updateSafe } from "../../../redux/safe/actions";
+import axios from 'axios';
+import API from "../../../api";
+
+
+
+
 function SafeForm({ closeModalHandler, currentFormValue, currentFormIndex }) {
   const [inputSafeName, setInputSafeName] = useState("");
   //val fun
@@ -11,17 +17,36 @@ function SafeForm({ closeModalHandler, currentFormValue, currentFormIndex }) {
   const [inputValues, setInputValues] = useState(currentFormValue);
   const dispatch = useDispatch();
 
-  const submitHandler = (e) => {
+  const submitHandler =  async (e) => {
     e.preventDefault();
     if (inputValues.description.length < 10) {
       alert("Enter more characters");
     } else {
       if (currentFormIndex != undefined) {
-        // console.log("updated input", inputValues);
-        dispatch(updateSafe({ index: currentFormIndex, values: inputValues }));
+        // dispatch(updateSafe({ index: currentFormIndex, values: inputValues }));
+         API.patch(``, inputValues )
+      .then(res => {
+        console.log("res",res);
+        console.log("res.data",res.data);
+      })
+      .catch(error => {
+    console.log(error.response)
+      });
+      
       } else {
-        dispatch(createSafe(inputValues));
+        // dispatch(createSafe(inputValues));
+        
+        API.post(``, inputValues )
+      .then(res => {
+        console.log("res",res);
+        console.log("res.data",res.data);
+      })
+      .catch(error => {
+    console.log(error.response)
+      });    
+
       }
+     
 
       closeModalHandler();
     }
@@ -60,7 +85,7 @@ function SafeForm({ closeModalHandler, currentFormValue, currentFormIndex }) {
         }
       />
       {/* select */}
-      <label for="type">Type</label>
+      <label htmlFor="type">Type</label>
 
       <select
         className="select-type"

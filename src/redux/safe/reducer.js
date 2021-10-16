@@ -1,6 +1,6 @@
 const intialState = {
   safe: [],
-  activeSafe: "",
+  activeSafe: 0,
 };
 
 function safeReducer(state = intialState, action) {

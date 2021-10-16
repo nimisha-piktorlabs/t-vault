@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect} from "react";
 import "./safeSideNav.css";
 import Sidenav from "../../../components/sideNav/sideNav.component";
 import arrowDownIcon from "../../../assets/images/icon_arrow_white.svg";
@@ -7,6 +7,7 @@ import asideBodyImg from "../../../assets/images/Group 12687.svg";
 import searchIcon from "../../../assets/images/icon_search.svg";
 import DeleteIcon from "../../../assets/images/icon_delete_inactive.svg";
 import EditIcon from "../../../assets/images/icon_edit_active.svg";
+
 // modal
 
 import ButtonImg from "../../../assets/images/Group 12577.svg";
@@ -17,6 +18,7 @@ import Modal from "../../../components/modal/modal";
 import SafeForm from "../safeForm/form";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteSafe, getSecret } from "../../../redux/safe/actions";
+import API from "../../../api"
 
 function SafeSideNav() {
   const [CurrentValues, setCureentValues] = useState({});
@@ -24,6 +26,7 @@ function SafeSideNav() {
   const [showModal, setShowModal] = useState(false);
   const [searchKey, setSearchKey] = useState("");
   const activesafeid = useSelector((state) => state.activeSafe);
+  const [data,setData] =useState([]);
 
   const dispatch = useDispatch();
 
@@ -32,8 +35,19 @@ function SafeSideNav() {
     setCureentIndex();
     setShowModal(true);
   };
+  // api for get all safe 
+  useEffect(() => {
+    API.get(``)
+      .then(res => {
+        const result = res.data;
+        console.log("result",result);
+        setData(result);     
+      })
+    
+  },[]);
   //---------search ------------------------------
-  let data = useSelector((state) => state.safe);
+  
+  // let data = useSelector((state) => state.safe);
   if (searchKey != "") {
     data = data.filter((data) => {
       return data.safename.search(searchKey) != -1;
@@ -45,20 +59,42 @@ function SafeSideNav() {
   }
   //---------search --------end ----------------------
   const isData = data.length ? true : false;
+  
 
   const safeOnClickHandler = (i) => {
     dispatch(getSecret(i));
   };
   //.....................deltet handler ..................../
   const deleteHandler = (i) => {
-    dispatch(deleteSafe(i));
+    // dispatch(deleteSafe(i));
+    // dispatch(getSecret(0));
+    API.delete(`/${i}`)
+      .then(res => {
+        console.log("delete res",res);
+        console.log("delete res.data",res.data);
+      })
+       .catch(error => {
+    console.log(error.response)
+      });
   };
   //edit handler
   const editHandler = (i) => {
+    console.log("edit",i);
     const [val] = data.filter((item, index) => index == i);
 
-    setCureentValues(val);
-    setCureentIndex(i);
+    API.get(`/${val}`)
+      .then(res => {
+        console.log("edit res",res);
+        console.log("edit res.data",res.data);
+        setCureentValues(val);
+        setCureentIndex(i);
+      })
+       .catch(error => {
+    console.log(error.response)
+      });
+
+    // setCureentValues(val);
+    // setCureentIndex(i);
     setShowModal(true);
 
     //  dispatch(editSafe(i));
@@ -127,14 +163,14 @@ function SafeSideNav() {
                           alt=""
                           srcset=""
                           className="edit-icon"
-                          onClick={() => editHandler(i)}
+                          onClick={() => editHandler(dat._id)}
                         />
                         <img
                           src={DeleteIcon}
                           alt=""
                           srcset=""
                           className="delete-icon"
-                          onClick={() => deleteHandler(i)}
+                          onClick={() => deleteHandler(dat._id)}
                         />
                       </div>
                     </div>
