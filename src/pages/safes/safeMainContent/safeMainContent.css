@@ -2,6 +2,13 @@
   width: 100%;
   background-color: #1c1f29;
 }
+ul.secret-ul {
+    max-height: 360px;
+    overflow-y: scroll;
+    
+}
+
+.secret-ul::-webkit-scrollbar{ width :6px; }
 .list-secret {
   color: #d0d0d0;
   list-style: none;

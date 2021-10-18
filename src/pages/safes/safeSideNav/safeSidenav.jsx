@@ -44,24 +44,25 @@ function SafeSideNav() {
         setData(result);     
       })
     
-  },[]);
+  });
   //---------search ------------------------------
-  
+  let filteredData=data;
   // let data = useSelector((state) => state.safe);
   if (searchKey != "") {
-    data = data.filter((data) => {
+   filteredData = filteredData.filter((data) => {
       return data.safename.search(searchKey) != -1;
     });
 
-    if (data == "" && searchKey != "") {
+    if (filteredData == [] && searchKey != "") {
       console.log("dataaa no", data);
     }
   }
   //---------search --------end ----------------------
-  const isData = data.length ? true : false;
+  const isData = filteredData.length ? true : false;
   
 
   const safeOnClickHandler = (i) => {
+    console.log("safeid",i);
     dispatch(getSecret(i));
   };
   //.....................deltet handler ..................../
@@ -82,12 +83,14 @@ function SafeSideNav() {
     console.log("edit",i);
     const [val] = data.filter((item, index) => index == i);
 
-    API.get(`/${val}`)
+    API.get(`/${i}`)
       .then(res => {
         console.log("edit res",res);
         console.log("edit res.data",res.data);
-        setCureentValues(val);
+        setCureentValues(res.data);
+        console.log("val..",val);
         setCureentIndex(i);
+         setShowModal(true);
       })
        .catch(error => {
     console.log(error.response)
@@ -95,7 +98,7 @@ function SafeSideNav() {
 
     // setCureentValues(val);
     // setCureentIndex(i);
-    setShowModal(true);
+   
 
     //  dispatch(editSafe(i));
   };
@@ -138,20 +141,20 @@ function SafeSideNav() {
         {isData && (
           <div className="list-container">
             <ul className="list-data-ul">
-              {data.map((dat, i) => {
-                let activeClass = activesafeid == i ? "active" : "";
+              {filteredData.map((dat, i) => {
+                let activeClass = activesafeid == dat._id ? "active" : "";
 
                 return (
                   <li
                     className={`list-data ${activeClass}`}
-                    onClick={() => safeOnClickHandler(i)}
+                    onClick={() => safeOnClickHandler(dat._id)}
                   >
                     <div className="list-content">
                       <div className="list-content-left">
                         <img
                           src={IconSafe}
                           alt=""
-                          srcset=""
+                         
                           className="iconsafe"
                         />
                         {dat.safename}
@@ -161,14 +164,14 @@ function SafeSideNav() {
                         <img
                           src={EditIcon}
                           alt=""
-                          srcset=""
+                          srcSet=""
                           className="edit-icon"
                           onClick={() => editHandler(dat._id)}
                         />
                         <img
                           src={DeleteIcon}
                           alt=""
-                          srcset=""
+                          srcSet=""
                           className="delete-icon"
                           onClick={() => deleteHandler(dat._id)}
                         />
@@ -182,7 +185,7 @@ function SafeSideNav() {
               <img
                 src={ButtonImg}
                 alt=""
-                srcset=""
+                srcSet=""
                 className="button-img-list"
                 onClick={openModalCreate}
               />
@@ -202,7 +205,7 @@ function SafeSideNav() {
                 <img
                   src={ButtonImg}
                   alt=""
-                  srcset=""
+                  srcSet=""
                   className="button-img"
                   onClick={openModalCreate}
                 />

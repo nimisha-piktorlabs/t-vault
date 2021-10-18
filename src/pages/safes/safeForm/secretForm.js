@@ -3,6 +3,7 @@ import InputField from "../../../components/formInputs/inputField/inputField";
 import Button from "../../../components/formInputs/button/button";
 import { useSelector, useDispatch } from "react-redux";
 import { createSecret } from "../../../redux/safe/actions";
+import API from "../../../api";
 
 function SecretForm({ closeModalHandler }) {
   const activesafeid = useSelector((state) => state.activeSafe);
@@ -10,12 +11,21 @@ function SecretForm({ closeModalHandler }) {
   const dispatch = useDispatch();
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log(e);
-    dispatch(createSecret({ secretData: inputSecret, index: activesafeid }));
+    console.log("input secrets",inputSecret);
+    
+       API.put(`/secret/${activesafeid}`, {secret:inputSecret} )
+      .then(res => {
+        console.log("res",res);
+        console.log("res.data",res.data);
+      })
+      .catch(error => {
+    console.log(error.response)
+      });
+    // dispatch(createSecret({ secretData: inputSecret, index: activesafeid }));
 
     closeModalHandler();
   };
-  return (
+  return ( 
     <form onSubmit={submitHandler}>
       <div className="form-group-secret">
         <label htmlFor="input-field"> Folder Name</label>

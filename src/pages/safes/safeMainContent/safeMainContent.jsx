@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect} from "react";
 import "./safeMainContent.css";
 import MainContent from "../../../components/mainContent/mainContent.component";
 import IconFolder from "../../../assets/images/icon_folder.svg";
@@ -7,6 +7,7 @@ import addFolder from "../../../assets/images/icon_addfolder_inactive.svg";
 import Modal from "../../../components/modal/modal";
 import SecretForm from "../safeForm/secretForm";
 import { useSelector } from "react-redux";
+import API from "../../../api"
 
 function SafeMainContent() {
   const [showModal, setShowModal] = useState(false);
@@ -16,7 +17,7 @@ function SafeMainContent() {
 
   const isSafe = data.length ? true : false;
   let secretData = [];
-  let safeName;
+  // let safeName;
   let ownerName;
 
   if (isSafe) {
@@ -25,12 +26,27 @@ function SafeMainContent() {
     );
 
     secretData = activeSafeData ? activeSafeData.secret : [];
-    safeName = activeSafeData ? activeSafeData.safename : "";
+    // safeName = activeSafeData ? activeSafeData.safename : "";
     ownerName = activeSafeData ? activeSafeData.owner : "";
   }
 
   // data.length && val.length();
+  // secret  data printing api
+    const [secrets, setSecrets] = useState(['']);
+     const [safeName, setSafeName] = useState();
 
+   useEffect(() => {
+    API.get(`/${activesafeid}`)
+      .then(res => {
+        const result = res.data;
+        console.log("result",result);
+        setSecrets(result.secrets); 
+        setSafeName(result.safename);    
+      })
+    
+  },[activesafeid]);
+ let secretlen= secrets ? secrets.length : 0;
+  
   const openModal = () => {
     if (safeName) setShowModal(true);
   };
@@ -72,7 +88,7 @@ function SafeMainContent() {
           </ul>
         </div>
         <div className="main-area-body">
-          {!secretData.length && (
+          {!secretlen && (
             <div className="container">
               <img src={secretimg} alt="" className="secretimg" />
               <div className="main-area-text">
@@ -87,9 +103,10 @@ function SafeMainContent() {
               </button>
             </div>
           )}
+          {secretlen && (
           <div className="secret-container">
             <ul className="secret-ul">
-              {secretData.map((secret, i) => {
+              {secrets.map((secret, i) => {
                 return (
                   <li className="list-secret active-li">
                     <img src={IconFolder} alt="" className="icon-folder" />
@@ -99,6 +116,7 @@ function SafeMainContent() {
               })}
             </ul>
           </div>
+          )}
           ;
         </div>
         {showModal && (

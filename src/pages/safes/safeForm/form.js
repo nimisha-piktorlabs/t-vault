@@ -21,10 +21,15 @@ function SafeForm({ closeModalHandler, currentFormValue, currentFormIndex }) {
     e.preventDefault();
     if (inputValues.description.length < 10) {
       alert("Enter more characters");
-    } else {
+    } 
+
+    else {
       if (currentFormIndex != undefined) {
+        console.log("current form",currentFormIndex)
+         console.log("current input val",inputValues)
+
         // dispatch(updateSafe({ index: currentFormIndex, values: inputValues }));
-         API.patch(``, inputValues )
+         API.patch(`/${currentFormIndex}`, inputValues )
       .then(res => {
         console.log("res",res);
         console.log("res.data",res.data);
@@ -95,7 +100,7 @@ function SafeForm({ closeModalHandler, currentFormValue, currentFormIndex }) {
           setInputValues({ ...inputValues, [e.target.name]: e.target.value })
         }
       >
-        <option value="Personal" selected>
+        <option value="Personal" defaultValue="Personal">
           Personal
         </option>
         <option value="Official">Official</option>
