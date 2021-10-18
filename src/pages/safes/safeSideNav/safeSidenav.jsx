@@ -40,11 +40,11 @@ function SafeSideNav() {
     API.get(``)
       .then(res => {
         const result = res.data;
-        console.log("result",result);
+        // console.log("result",result);
         setData(result);     
       })
     
-  });
+  },[]);
   //---------search ------------------------------
   let filteredData=data;
   // let data = useSelector((state) => state.safe);

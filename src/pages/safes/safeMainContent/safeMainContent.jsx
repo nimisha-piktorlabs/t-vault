@@ -11,14 +11,15 @@ import API from "../../../api"
 
 function SafeMainContent() {
   const [showModal, setShowModal] = useState(false);
+  const [reload, setReload] = useState(false);
   const activesafeid = useSelector((state) => state.activeSafe);
-  console.log("activesttate", activesafeid);
+ 
   const data = useSelector((state) => state.safe);
 
   const isSafe = data.length ? true : false;
   let secretData = [];
   // let safeName;
-  let ownerName;
+  // let ownerName;
 
   if (isSafe) {
     const [activeSafeData] = data.filter(
@@ -27,28 +28,35 @@ function SafeMainContent() {
 
     secretData = activeSafeData ? activeSafeData.secret : [];
     // safeName = activeSafeData ? activeSafeData.safename : "";
-    ownerName = activeSafeData ? activeSafeData.owner : "";
+    // ownerName = activeSafeData ? activeSafeData.owner : "";
   }
 
   // data.length && val.length();
   // secret  data printing api
     const [secrets, setSecrets] = useState(['']);
      const [safeName, setSafeName] = useState();
-
+      const [ownerName, setOwnerName] = useState();
+      
+  console.log("reload val",reload);
    useEffect(() => {
     API.get(`/${activesafeid}`)
       .then(res => {
         const result = res.data;
-        console.log("result",result);
+        console.log("res",result)
+        console.log("ownername",result.ownername)
         setSecrets(result.secrets); 
-        setSafeName(result.safename);    
+        setSafeName(result.safename); 
+        setOwnerName(result.owner);   
       })
     
-  },[activesafeid]);
+  },[activesafeid,reload]);
+
  let secretlen= secrets ? secrets.length : 0;
   
   const openModal = () => {
     if (safeName) setShowModal(true);
+    setReload(false);
+   
   };
 
   return (
@@ -64,7 +72,7 @@ function SafeMainContent() {
           </div>
         ) : (
           <div className="text-centered">
-            <span className="main-text">{safeName}</span>
+            <span className="main-text">Safe / {safeName}</span>
             <br />
             <span className="sub-text">{ownerName}</span>
           </div>
@@ -124,7 +132,7 @@ function SafeMainContent() {
             <div className="modal-header">
               <span className="modal-title">Add Folder</span>
             </div>
-            <SecretForm closeModalHandler={() => setShowModal(false)} />
+            <SecretForm closeModalHandler={() => setShowModal(false)} reloadSecret={ () => setReload(true)} />
           </Modal>
         )}
       </div>

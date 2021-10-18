@@ -5,25 +5,27 @@ import { useSelector, useDispatch } from "react-redux";
 import { createSecret } from "../../../redux/safe/actions";
 import API from "../../../api";
 
-function SecretForm({ closeModalHandler }) {
+function SecretForm({ closeModalHandler,reloadSecret }) {
   const activesafeid = useSelector((state) => state.activeSafe);
   const [inputSecret, setInputSecret] = useState();
   const dispatch = useDispatch();
+
   const submitHandler = (e) => {
     e.preventDefault();
     console.log("input secrets",inputSecret);
     
        API.put(`/secret/${activesafeid}`, {secret:inputSecret} )
-      .then(res => {
-        console.log("res",res);
-        console.log("res.data",res.data);
+      .then(res => {    
+        
       })
       .catch(error => {
     console.log(error.response)
       });
     // dispatch(createSecret({ secretData: inputSecret, index: activesafeid }));
-
+  
     closeModalHandler();
+    reloadSecret();
+     
   };
   return ( 
     <form onSubmit={submitHandler}>
