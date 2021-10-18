@@ -36,14 +36,15 @@ function SafeMainContent() {
     const [secrets, setSecrets] = useState(['']);
      const [safeName, setSafeName] = useState();
       const [ownerName, setOwnerName] = useState();
-      
+// let reload1 = reload ? false:true;
+// console.log("reload1",reload1);
   console.log("reload val",reload);
    useEffect(() => {
     API.get(`/${activesafeid}`)
       .then(res => {
         const result = res.data;
         console.log("res",result)
-        console.log("ownername",result.ownername)
+       
         setSecrets(result.secrets); 
         setSafeName(result.safename); 
         setOwnerName(result.owner);   

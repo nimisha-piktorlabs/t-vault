@@ -16,7 +16,7 @@ function SecretForm({ closeModalHandler,reloadSecret }) {
     
        API.put(`/secret/${activesafeid}`, {secret:inputSecret} )
       .then(res => {    
-        
+         reloadSecret();
       })
       .catch(error => {
     console.log(error.response)
@@ -24,7 +24,7 @@ function SecretForm({ closeModalHandler,reloadSecret }) {
     // dispatch(createSecret({ secretData: inputSecret, index: activesafeid }));
   
     closeModalHandler();
-    reloadSecret();
+   
      
   };
   return ( 

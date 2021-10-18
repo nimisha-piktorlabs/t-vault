@@ -10,7 +10,7 @@ import API from "../../../api";
 
 
 
-function SafeForm({ closeModalHandler, currentFormValue, currentFormIndex }) {
+function SafeForm({ closeModalHandler, currentFormValue, currentFormIndex,reload }) {
   const [inputSafeName, setInputSafeName] = useState("");
   //val fun
 
@@ -33,6 +33,8 @@ function SafeForm({ closeModalHandler, currentFormValue, currentFormIndex }) {
       .then(res => {
         console.log("res",res);
         console.log("res.data",res.data);
+        reload();
+        
       })
       .catch(error => {
     console.log(error.response)
@@ -45,6 +47,7 @@ function SafeForm({ closeModalHandler, currentFormValue, currentFormIndex }) {
       .then(res => {
         console.log("res",res);
         console.log("res.data",res.data);
+         reload();
       })
       .catch(error => {
     console.log(error.response)

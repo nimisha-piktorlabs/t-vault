@@ -36,15 +36,19 @@ function SafeSideNav() {
     setShowModal(true);
   };
   // api for get all safe 
+  const [isloaded,setIsLoaded] = useState(true);
   useEffect(() => {
     API.get(``)
       .then(res => {
         const result = res.data;
         // console.log("result",result);
-        setData(result);     
+        let firstId = result[0] ? result[0]._id : false;
+        dispatch(getSecret(firstId));
+        setData(result); 
+        setIsLoaded(true);    
       })
     
-  },[]);
+  },[isloaded]);
   //---------search ------------------------------
   let filteredData=data;
   // let data = useSelector((state) => state.safe);
@@ -73,10 +77,13 @@ function SafeSideNav() {
       .then(res => {
         console.log("delete res",res);
         console.log("delete res.data",res.data);
+        setIsLoaded(false);
       })
        .catch(error => {
     console.log(error.response)
       });
+    
+     
   };
   //edit handler
   const editHandler = (i) => {
@@ -95,6 +102,7 @@ function SafeSideNav() {
        .catch(error => {
     console.log(error.response)
       });
+
 
     // setCureentValues(val);
     // setCureentIndex(i);
@@ -138,7 +146,9 @@ function SafeSideNav() {
         </div>
       </div>
       <div className="aside-body">
-        {isData && (
+        
+        {!isloaded && <div className="loader"></div>}
+        {isData && isloaded && (
           <div className="list-container">
             <ul className="list-data-ul">
               {filteredData.map((dat, i) => {
@@ -253,6 +263,7 @@ function SafeSideNav() {
               closeModalHandler={() => setShowModal(false)}
               currentFormValue={CurrentValues}
               currentFormIndex={CurrentIndex}
+              reload={() => setIsLoaded(false)}
             />
           </Modal>
         )}
