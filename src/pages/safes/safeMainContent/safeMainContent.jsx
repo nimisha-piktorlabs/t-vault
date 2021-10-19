@@ -136,6 +136,7 @@ function SafeMainContent() {
               <span className="modal-title">Add Folder</span>
             </div>
             <SecretForm closeModalHandler={() => setShowModal(false)} reloadSecret={ () => setReload(true)} />
+           
           </Modal>
         )}
       </div>

@@ -33,6 +33,7 @@ function SafeForm({ closeModalHandler, currentFormValue, currentFormIndex,reload
       .then(res => {
         console.log("res edit",res);
         console.log("res.data edit",res.data);
+        closeModalHandler();
         reload();
         
       })
@@ -42,21 +43,30 @@ function SafeForm({ closeModalHandler, currentFormValue, currentFormIndex,reload
       
       } else {
         // dispatch(createSafe(inputValues));
-        
+        let codeval;
         API.post(``, inputValues )
       .then(res => {
         console.log("res post",res);
         console.log("res.data post",res.data);
+         closeModalHandler();
          reload();
       })
-      .catch(error => {
-    console.log(error.response)
-      });    
-
+      .catch (function(error)  {
+    console.log("eooe msg",error.response)
+    console. log("status code",error.response.data.message.code)
+     codeval = error.response.data.message.code;
+      console.log("code val",codeval);
+       if(codeval === 11000){
+      alert("safe name already exist!!!!!");
+       console.log("code ,,,,,,,,,,,val");
+    }
+         
+      });  
+     
       }
      
 
-      closeModalHandler();
+     
     }
   };
   //   useDispatch(createSafe({ name: "safe1" }));

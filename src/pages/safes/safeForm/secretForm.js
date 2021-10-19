@@ -12,19 +12,27 @@ function SecretForm({ closeModalHandler,reloadSecret }) {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log("input secrets",inputSecret);
+   
     
-       API.put(`/secret/${activesafeid}`, {secret:inputSecret} )
+  if(/^([a-z0-9_]{3,})$/.test(inputSecret)) {
+      API.put(`/secret/${activesafeid}`, {secret:inputSecret} )
       .then(res => {  
-          console.log("sectet res",res);  
+          console.log("sectet res",res); 
+           closeModalHandler(); 
          reloadSecret();
       })
       .catch(error => {
     console.log(error.response)
       });
+  }
+       
+
+    else { 
+     
     // dispatch(createSecret({ secretData: inputSecret, index: activesafeid }));
-  
-    closeModalHandler();
+   alert("Enter valiid folder Name!!! ");
+   
+    }
    
      
   };
@@ -41,7 +49,9 @@ function SecretForm({ closeModalHandler,reloadSecret }) {
           value={inputSecret}
           onChangeHandler={(e) => setInputSecret(e.target.value)}
         />
+         <span className="instruction-text">Please enter a minimum of 3 characters lowercase alphabets numbebr and underscores only. </span>
       </div>
+      
       <div className="btn-div">
         <div className="cancel-btn" onClick={closeModalHandler}>
           Cancel
