@@ -36,18 +36,20 @@ function SafeMainContent() {
     const [secrets, setSecrets] = useState(['']);
      const [safeName, setSafeName] = useState();
       const [ownerName, setOwnerName] = useState();
+       const [description, setDescription] = useState();
 // let reload1 = reload ? false:true;
 // console.log("reload1",reload1);
-  console.log("reload val",reload);
+ 
    useEffect(() => {
     API.get(`/${activesafeid}`)
       .then(res => {
         const result = res.data;
-        console.log("res",result)
+        // console.log("res",result)
        
         setSecrets(result.secrets); 
         setSafeName(result.safename); 
-        setOwnerName(result.owner);   
+        setOwnerName(result.owner);
+        setDescription(result.description);   
       })
     
   },[activesafeid,reload]);
@@ -73,9 +75,9 @@ function SafeMainContent() {
           </div>
         ) : (
           <div className="text-centered">
-            <span className="main-text">Safe / {safeName}</span>
+            <span className="main-text">{safeName} / {ownerName}</span>
             <br />
-            <span className="sub-text">{ownerName}</span>
+            <span className="sub-text">{description}</span>
           </div>
         )}
       </div>

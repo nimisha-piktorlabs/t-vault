@@ -9,7 +9,7 @@
   height: 11.938rem;
   position: relative;
   background-image: url(../../assets/images/Banner_img.svg);
-  margin-top: -7.5px;
+  margin-top: -0.469rem;
 }
 .banner-img {
   position: absolute;
@@ -23,14 +23,14 @@
 }
 .main-text {
   /* font-family: Roboto; */
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: 500;
   text-align: left;
   color: #fff;
 }
 .sub-text {
   font-family: Helvetica;
-  font-size: 14px;
+  font-size: 0.875rem;
   line-height: 3;
   text-align: left;
   color: #c4c4c4;
@@ -52,7 +52,7 @@
   color: #5e627c;
   font-family: Helvetica;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 1rem;
   border-bottom: 2px solid #222632;
   justify-content: space-between;
   align-items: center;
@@ -81,10 +81,10 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  padding-top: 30px;
+  padding-top: 1.875rem;
 }
 .main-area-text {
-  font-size: 14px;
+  font-size: 0.875rem;
   text-align: center;
   color: rgba(255, 255, 255, 0.4);
   line-height: 1.29;
@@ -94,7 +94,7 @@
   width: 5.875rem;
   height: 2.25rem;
   background-color: #454c5e;
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: bold;
   color: #fff;
   border: none;

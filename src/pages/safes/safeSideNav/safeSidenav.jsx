@@ -95,7 +95,7 @@ function SafeSideNav() {
         console.log("edit res",res);
         console.log("edit res.data",res.data);
         setCureentValues(res.data);
-        console.log("val..",val);
+       
         setCureentIndex(i);
          setShowModal(true);
       })

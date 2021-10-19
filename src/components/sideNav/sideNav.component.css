@@ -43,25 +43,25 @@
 .all-safe-count {
   font-weight: normal;
   color: #5e627c;
-  padding-left: 5px;
+  padding-left: 0.313rem;
 }
 .arrow-down-icon {
-  height: 17px;
-  width: 10px;
+  height: 1.063rem;
+  width: 0.625rem;
 }
 .all-safe {
   display: flex;
   align-items: center;
 }
 .arrow-icon {
-  padding-left: 10px;
+  padding-left: 0.625rem;
 }
 .aside-header {
   height: 3.688rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 20px;
+  padding: 0 1.25rem;
   /* padding: 7px; */
   border-bottom: 1px solid #2a2e3e;
 }

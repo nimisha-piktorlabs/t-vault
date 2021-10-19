@@ -1,20 +1,22 @@
 .secret-container {
   width: 100%;
   background-color: #1c1f29;
+  max-height: calc(100% - 50px);
+    overflow-y: scroll;
 }
 ul.secret-ul {
-    max-height: 360px;
-    overflow-y: scroll;
+    /* max-height: 22.5rem;
+    overflow-y: scroll; */
     
 }
 
-.secret-ul::-webkit-scrollbar{ width :6px; }
+.secret-container::-webkit-scrollbar{ width :6px; }
 .list-secret {
   color: #d0d0d0;
   list-style: none;
   display: flex;
   align-items: center;
-  padding: 15px;
+  padding: 0.938rem;
   background-color: #2b2e36;
   border-bottom: 1px solid #2a2e3e;
 }
@@ -23,10 +25,10 @@ ul.secret-ul {
 }
 
 .icon-folder {
-  width: 40px;
-  height: 40px;
+  width: 2.5rem;
+  height: 2.5rem;
   flex-grow: 0;
-  margin: 0 16px 0 8px;
+  margin: 0 1rem 0 0.5rem;
 }
 .add-folder-icon {
   padding-left: 0.625rem;

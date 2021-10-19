@@ -25,14 +25,14 @@ function SafeForm({ closeModalHandler, currentFormValue, currentFormIndex,reload
 
     else {
       if (currentFormIndex != undefined) {
-        console.log("current form",currentFormIndex)
-         console.log("current input val",inputValues)
+         console.log("current form",currentFormIndex)
+          console.log("current input val",inputValues)
 
         // dispatch(updateSafe({ index: currentFormIndex, values: inputValues }));
          API.patch(`/${currentFormIndex}`, inputValues )
       .then(res => {
-        console.log("res",res);
-        console.log("res.data",res.data);
+        console.log("res edit",res);
+        console.log("res.data edit",res.data);
         reload();
         
       })
@@ -45,8 +45,8 @@ function SafeForm({ closeModalHandler, currentFormValue, currentFormIndex,reload
         
         API.post(``, inputValues )
       .then(res => {
-        console.log("res",res);
-        console.log("res.data",res.data);
+        console.log("res post",res);
+        console.log("res.data post",res.data);
          reload();
       })
       .catch(error => {
