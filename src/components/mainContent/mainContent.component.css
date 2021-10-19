@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
+background-color: #151820;
   width: calc(100% - 33.125rem);
 }
 .banner {
@@ -19,7 +19,7 @@
 .text-centered {
   position: absolute;
   top: 30%;
-  left: 30%;
+  left: 38%;
 }
 .main-text {
   /* font-family: Roboto; */
@@ -36,7 +36,7 @@
   color: #c4c4c4;
 }
 .main-area {
-  background-image: linear-gradient(to top, #151820, #2c3040);
+  background-image: linear-gradient(to top  #2c3040,#151820,);
   height: calc(100% - 11.938rem);
 
   display: flex;
