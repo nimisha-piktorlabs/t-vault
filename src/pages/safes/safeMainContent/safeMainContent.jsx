@@ -44,8 +44,8 @@ function SafeMainContent() {
     API.get(`/${activesafeid}`)
       .then(res => {
         const result = res.data;
-        // console.log("res",result)
-       
+         console.log("res.data",res);
+        console.log("res",result);
         setSecrets(result.secrets); 
         setSafeName(result.safename); 
         setOwnerName(result.owner);

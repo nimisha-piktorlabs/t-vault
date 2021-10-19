@@ -15,7 +15,8 @@ function SecretForm({ closeModalHandler,reloadSecret }) {
     console.log("input secrets",inputSecret);
     
        API.put(`/secret/${activesafeid}`, {secret:inputSecret} )
-      .then(res => {    
+      .then(res => {  
+          console.log("sectet res",res);  
          reloadSecret();
       })
       .catch(error => {
