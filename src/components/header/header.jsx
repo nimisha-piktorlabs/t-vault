@@ -4,7 +4,7 @@ import "./header.css";
 import { Link, useLocation } from "react-router-dom";
 function Header() {
   const headerNav = [
-    { text: "Safes", path: "/safe" },
+    { text: "Safes", path: "/safes" },
     { text: "Vault AppRoles", path: "/vault" },
     { text: "Service Accounts", path: "/service" },
 

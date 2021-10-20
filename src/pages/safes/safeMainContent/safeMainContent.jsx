@@ -109,7 +109,7 @@ function SafeMainContent() {
                 here
               </div>
               <button className="add-button" onClick={openModal}>
-                {" "}
+              
                 + Add
               </button>
             </div>
@@ -127,8 +127,7 @@ function SafeMainContent() {
               })}
             </ul>
           </div>
-          )}
-          ;
+          )};
         </div>
         {showModal && (
           <Modal>

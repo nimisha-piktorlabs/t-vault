@@ -3,7 +3,7 @@ import InputField from "../../../components/formInputs/inputField/inputField";
 import TextArea from "../../../components/formInputs/textArea/textArea";
 import Button from "../../../components/formInputs/button/button";
 import { useSelector, useDispatch } from "react-redux";
-import { createSafe, updateSafe } from "../../../redux/safe/actions";
+import { createSafe, updateSafe,  getSecret } from "../../../redux/safe/actions";
 import axios from 'axios';
 import API from "../../../api";
 
@@ -27,14 +27,17 @@ function SafeForm({ closeModalHandler, currentFormValue, currentFormIndex,reload
       if (currentFormIndex != undefined) {
          console.log("current form",currentFormIndex)
           console.log("current input val",inputValues)
-
+       let safeId = currentFormIndex;
+       dispatch(getSecret(false));
         // dispatch(updateSafe({ index: currentFormIndex, values: inputValues }));
-         API.patch(`/${currentFormIndex}`, inputValues )
+         API.patch(`/${safeId}`, inputValues )
       .then(res => {
         console.log("res edit",res);
         console.log("res.data edit",res.data);
         closeModalHandler();
+         dispatch(getSecret(safeId));
         reload();
+
         
       })
       .catch(error => {

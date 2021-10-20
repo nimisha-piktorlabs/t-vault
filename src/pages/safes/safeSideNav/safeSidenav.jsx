@@ -27,6 +27,7 @@ function SafeSideNav() {
   const [searchKey, setSearchKey] = useState("");
   const activesafeid = useSelector((state) => state.activeSafe);
   const [data,setData] =useState([]);
+  
 
   const dispatch = useDispatch();
 
@@ -36,7 +37,8 @@ function SafeSideNav() {
     setShowModal(true);
   };
   // api for get all safe 
-  const [isloaded,setIsLoaded] = useState(true);
+  const [isloaded,setIsLoaded] = useState(false);
+  console.log("loadedval",isloaded);
   useEffect(() => {
     API.get(``)
       .then(res => {
@@ -167,9 +169,12 @@ function SafeSideNav() {
                          
                           className="iconsafe"
                         />
-                        {dat.safename}
+                        <div>
+                       <span> {dat.safename}</span>
+                       <br/><span className="date-info">{dat.date}</span>
+                       </div>
                       </div>
-
+                      
                       <div className="edit-delete-icon-container">
                         <img
                           src={EditIcon}
@@ -186,7 +191,9 @@ function SafeSideNav() {
                           onClick={() => deleteHandler(dat._id)}
                         />
                       </div>
+                        
                     </div>
+                    
                   </li>
                 );
               })}
@@ -202,7 +209,7 @@ function SafeSideNav() {
             </span>
           </div>
         )}
-        {!isData && !searchKey && (
+        {isloaded && !isData && !searchKey && (
           <div className="display-list-empty">
             <div className="imgdiv">
               <div className="aside-body-img-container">

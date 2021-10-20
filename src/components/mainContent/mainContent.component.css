@@ -73,8 +73,8 @@ background-color: #151820;
   /* display: flex;
 
   justify-content: center; */
-  height: 21.8rem;
-  background-image: linear-gradient(to top, #151820, #2c3040);
+  height: 22.9rem;
+  background-image: linear-gradient(to bottom, #151820, #2c3040);
 }
 .container {
   gap: 1rem;

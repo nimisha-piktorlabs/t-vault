@@ -24,10 +24,10 @@ function App() {
               exact
               path="/"
               render={() => {
-                return <Redirect to="/safe" />;
+                return <Redirect to="/safes" />;
               }}
             />
-            <Route path="/safe" component={SafePage} />
+            <Route path="/safes" component={SafePage} />
             <Route path="/vault" component={VaultPage} />
             <Route path="/iam" component={IamPage} />
             <Route path="/azure" component={AzurePage} />
