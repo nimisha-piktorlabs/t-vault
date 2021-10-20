@@ -53,6 +53,11 @@ label {
   margin-top: 0.313rem;
   padding: 0.625rem;
 }
+.list-data-ul{
+  max-height: 30.5rem;
+    overflow-y: scroll;
+}
+.list-data-ul::-webkit-scrollbar{ width :6px; }
 
 .list-content {
   display: flex;

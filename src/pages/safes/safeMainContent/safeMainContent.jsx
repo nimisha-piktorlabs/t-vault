@@ -127,7 +127,7 @@ function SafeMainContent() {
               })}
             </ul>
           </div>
-          )};
+          )}
         </div>
         {showModal && (
           <Modal>
