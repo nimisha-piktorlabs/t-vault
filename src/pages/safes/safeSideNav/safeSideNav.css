@@ -53,11 +53,16 @@ label {
   margin-top: 0.313rem;
   padding: 0.625rem;
 }
+.list-container{
+  overflow-y: scroll;
+    max-height: calc(100vh - 19.2rem);
+}
+.list-container::-webkit-scrollbar{ width :0px; }
 .list-data-ul{
-  max-height: 30.5rem;
+  /* max-height: 30.5rem; */
     overflow-y: scroll;
 }
-.list-data-ul::-webkit-scrollbar{ width :6px; }
+.list-data-ul::-webkit-scrollbar{ width :0px; }
 
 .list-content {
   display: flex;
@@ -90,12 +95,10 @@ label {
  
   /* height: 16px;
     width: 16px; */
-      margin-right: 15px;
-     
-    
+    margin-right: 0.938rem;
     padding: 0 0.5rem;
-    height: 30px;
-    width: 30px;
+    height: 1.875rem;
+    width: 1.875rem;
     /* padding-right: 0.75rem; */
     
 }
@@ -113,12 +116,10 @@ label {
     
 
 .delete-icon {
-  padding-right: 1.25rem;
-  
-     
+  padding-right: 1.25rem;  
     padding: 0 0.5rem;
-    height: 30px;
-    width: 30px;
+    height: 1.875rem;
+    width: 1.875rem;
 }
 
 .delete-icon:hover{

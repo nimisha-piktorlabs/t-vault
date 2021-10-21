@@ -6,6 +6,7 @@ function InputField({
   placeholder,
   name,
   value,
+  maxlength,
   onChangeHandler,
 }) {
   return (
@@ -16,6 +17,7 @@ function InputField({
       onChange={onChangeHandler}
       name={name}
       value={value}
+      maxlength ={maxlength}
       required
     />
   );

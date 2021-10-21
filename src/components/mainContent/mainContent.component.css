@@ -9,6 +9,8 @@ background-color: #151820;
   height: 11.938rem;
   position: relative;
   background-image: url(../../assets/images/Banner_img.svg);
+  background-repeat: no-repeat;
+    background-size: cover;
   margin-top: -0.469rem;
 }
 .banner-img {
@@ -19,7 +21,9 @@ background-color: #151820;
 .text-centered {
   position: absolute;
   top: 30%;
-  left: 39%;
+  left: 33%;
+      max-width: 25rem;
+    word-wrap: break-word;
 }
 .main-text {
   /* font-family: Roboto; */
@@ -73,7 +77,8 @@ background-color: #151820;
   /* display: flex;
 
   justify-content: center; */
-  height: 22.9rem;
+  height: calc(100vh - 17rem);
+  /* height: 22.9rem; */
   background-image: linear-gradient(to bottom, #151820, #2c3040);
 }
 .container {
@@ -108,4 +113,16 @@ background-color: #151820;
   font-family: Roboto;
   font-weight: bold;
   color: #fff;
+}
+
+/* mediia query */
+
+@media only  screen and (min-width: 1660px) {
+ .banner {
+  height: 14.938rem;
+ }
+  .main-area {
+     height: calc(100% - 14.938rem);
+
+  }
 }

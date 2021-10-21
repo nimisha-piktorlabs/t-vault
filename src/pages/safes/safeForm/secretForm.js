@@ -46,6 +46,7 @@ function SecretForm({ closeModalHandler,reloadSecret }) {
           placeholder="Folder name"
           label="Name"
           name="secret"
+          maxlength="25"
           value={inputSecret}
           onChangeHandler={(e) => setInputSecret(e.target.value)}
         />

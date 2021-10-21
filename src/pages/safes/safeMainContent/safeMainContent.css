@@ -1,7 +1,8 @@
 .secret-container {
   width: 100%;
-  /* background-color: #1c1f29; */
-  max-height: 22rem;
+ 
+  /* max-height: 22rem; */
+      max-height: calc(100vh - 30rem);;
     overflow-y: scroll;
 }
 ul.secret-ul {
@@ -10,7 +11,7 @@ ul.secret-ul {
     
 }
 
-.secret-container::-webkit-scrollbar{ width :6px; }
+.secret-container::-webkit-scrollbar{ width :0px; }
 .list-secret {
   color: #d0d0d0;
   list-style: none;

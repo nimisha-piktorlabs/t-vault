@@ -84,6 +84,7 @@ function SafeForm({ closeModalHandler, currentFormValue, currentFormIndex,reload
           placeholder="safe name"
           label="Name"
           name="safename"
+          maxlength="30"
           required
           value={inputValues.safename}
           onChangeHandler={(e) =>
@@ -100,6 +101,7 @@ function SafeForm({ closeModalHandler, currentFormValue, currentFormIndex,reload
         label="Name"
         name="owner"
         required
+        maxlength="30"
         value={inputValues.owner}
         onChangeHandler={(e) =>
           setInputValues({ ...inputValues, [e.target.name]: e.target.value })
