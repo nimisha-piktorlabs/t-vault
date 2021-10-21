@@ -123,7 +123,7 @@ function SafeMainContent() {
                     <img src={IconFolder} alt="" className="icon-folder" />
                     {secret}
                   </li>
-                );
+                )
               })}
             </ul>
           </div>
@@ -140,7 +140,7 @@ function SafeMainContent() {
         )}
       </div>
     </MainContent>
-  );
+  )
 }
 
 export default SafeMainContent;
