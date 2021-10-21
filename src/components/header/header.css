@@ -29,7 +29,7 @@ header {
 }
 .T-VAULT {
   font-family: NunitoSans;
-  margin: 0 0 0 0.75rem;
+  margin: 0.2rem 0 0 0.75rem;
   font-size: 1.5rem;
   font-weight: bold;
   letter-spacing: 3.84px;
@@ -84,6 +84,11 @@ header {
 .nav-active {
   background-image: linear-gradient(to top, #72134b, #1d212c);
 }
+.logo-link{
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+}
 
 /* media query  */
 
@@ -125,7 +130,7 @@ header {
  }
 
 } */
- @media  screen and (min-width: 1023px) {
+ @media  screen and (min-width: 1028px) {
   .right-section{
    
   }
@@ -137,11 +142,11 @@ header {
 @media  screen and (min-width: 1281px) {
   
    html{ 
-   font-size: 14px;
+   font-size: 13px;
  }
 
 }
-@media  screen and (min-width: 1400px) {
+@media  screen and (min-width: 1440px) {
   
    html{ 
    font-size: 16px;
@@ -179,8 +184,11 @@ header {
  }
 
 } */
-@media  screen and (max-width: 968px) {
+@media  screen and (max-width: 1027px) {
   .right-section{
     display: none;
   }
+   html{ 
+   font-size: 10px;
+ }
 }

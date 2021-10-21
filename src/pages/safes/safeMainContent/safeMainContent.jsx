@@ -75,7 +75,7 @@ function SafeMainContent() {
           </div>
         ) : (
           <div className="text-centered">
-            <span className="main-text">{safeName} / {ownerName}</span>
+            <span className="main-text">{safeName} / </span>
             <br />
             <span className="sub-text">{description}</span>
           </div>

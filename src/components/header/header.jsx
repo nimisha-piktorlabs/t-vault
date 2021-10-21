@@ -21,9 +21,9 @@ function Header() {
       <div className="header-wrapper">
         <div className="logo_middle_section">
           <div className="logo-section">
-            <a href="/safes">
-            <img src={Logo} alt="img"  className="logo" /></a>
-            <span className="T-VAULT">T-VAULT</span>
+            <a href="/safes" className="logo-link">
+            <img src={Logo} alt="img"  className="logo" />
+            <span className="T-VAULT">T-VAULT</span></a>
           </div>
           <ul className="middle-section">
             {headerNav.map((nav, i) => {
