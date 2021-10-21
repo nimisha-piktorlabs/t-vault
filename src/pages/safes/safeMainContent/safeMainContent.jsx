@@ -114,7 +114,7 @@ function SafeMainContent() {
               </button>
             </div>
           )}
-          {secretlen && (
+          {secretlen != 0 && (
           <div className="secret-container">
             <ul className="secret-ul">
               {secrets.map((secret, i) => {

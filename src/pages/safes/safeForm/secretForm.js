@@ -30,7 +30,7 @@ function SecretForm({ closeModalHandler,reloadSecret }) {
     else { 
      
     // dispatch(createSecret({ secretData: inputSecret, index: activesafeid }));
-   alert("Enter valiid folder Name!!! ");
+   alert("Enter a valid folder Name!!! ");
    
     }
    

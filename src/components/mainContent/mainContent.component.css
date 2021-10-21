@@ -24,6 +24,11 @@ background-color: #151820;
   left: 33%;
       max-width: 25rem;
     word-wrap: break-word;
+    /* line clamp overflow text */
+     display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
 }
 .main-text {
   /* font-family: Roboto; */

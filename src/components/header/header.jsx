@@ -21,7 +21,8 @@ function Header() {
       <div className="header-wrapper">
         <div className="logo_middle_section">
           <div className="logo-section">
-            <img src={Logo} alt="img"  className="logo" />
+            <a href="/safes">
+            <img src={Logo} alt="img"  className="logo" /></a>
             <span className="T-VAULT">T-VAULT</span>
           </div>
           <ul className="middle-section">
