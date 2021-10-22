@@ -5,6 +5,7 @@ function TextArea({
   placeholder,
   onChangeHandler,
   name,
+  maxlength,
   value,
 }) {
   return (
@@ -17,6 +18,7 @@ function TextArea({
       onChange={onChangeHandler}
       name={name}
       value={value}
+      maxlength={maxlength}
       required
     ></textarea>
   );

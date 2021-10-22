@@ -132,6 +132,7 @@ function SafeForm({ closeModalHandler, currentFormValue, currentFormIndex,reload
         modal_textarea="modaltextarea"
         placeholder="Description"
         name="description"
+         maxlength="150"
         value={inputValues.description}
         onChangeHandler={(e) =>
           setInputValues({ ...inputValues, [e.target.name]: e.target.value })

@@ -74,12 +74,16 @@ function SafeMainContent() {
             </span>
           </div>
         ) : (
-          <div className="text-centered">
+          <div className="text-centered tooltip">
             <span className="main-text">{safeName} / </span>
             <br />
             <span className="sub-text">{description}</span>
+             <span className="tooltiptext"> {description}</span>
           </div>
+         
         )}
+       
+   
       </div>
       <div className="main-area">
         <div className="main-area-header">

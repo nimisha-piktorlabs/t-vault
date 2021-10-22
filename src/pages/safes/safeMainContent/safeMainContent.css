@@ -2,7 +2,7 @@
   width: 100%;
  
   /* max-height: 22rem; */
-      max-height: calc(100vh - 30rem);;
+      max-height: calc(100vh - 25rem);;
     overflow-y: scroll;
 }
 ul.secret-ul {
@@ -36,4 +36,45 @@ ul.secret-ul {
 }
 .add-folder-icon:hover {
   cursor: pointer;
+}
+
+
+
+.tooltip {
+  position: relative;
+  
+  }
+  
+.tooltiptext {
+  visibility: hidden;
+  width: 100%;
+      background-color: #222632;
+    color: rgb(193 191 191);
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+     left: 5%;
+    margin-left: -10px;
+    margin-bottom: -66px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
 }

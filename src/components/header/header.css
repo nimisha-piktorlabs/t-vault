@@ -157,20 +157,23 @@ header {
 
   
  .middle-section li a {
-     min-width: 12rem;
+     min-width: 10rem;
 
  }
  html{ 
-   font-size: 25px;
+   font-size: 17px;
  }
 
 }
 @media  screen and (min-width: 2200px) {
   
  html{ 
-   font-size: 30px;
+   font-size: 19px;
  }
+.middle-section li a {
+     min-width: 10rem;
 
+ }
 
 }
 
