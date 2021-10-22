@@ -83,7 +83,7 @@ background-color: #151820;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;  
   overflow: hidden;
-  color: white;
+      padding-top: 0.4rem;
 }
 .main-area {
   background-image: linear-gradient(to top  #2c3040,#151820,);
